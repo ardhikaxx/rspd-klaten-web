@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radio Siaran Pemerintah Daerah Klaten</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
-    <!-- Custom CSS -->
     <style>
         :root {
             --primary-bg: #0d121e;
@@ -30,16 +27,24 @@
             color: var(--text-light);
             line-height: 1.6;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 154px;
         }
 
-        /* Custom container with side margins */
         .custom-container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 15px;
         }
 
-        /* Header Top Bar */
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--primary-bg);
+        }
+
         .header-top-bar {
             background-color: #0a0e15;
             padding: 8px 0;
@@ -87,7 +92,6 @@
             color: var(--accent);
         }
 
-        /* Main Header */
         .main-header {
             background-color: var(--primary-bg);
             padding: 15px 0;
@@ -149,7 +153,6 @@
             color: #000;
         }
 
-        /* Navigation */
         .custom-nav {
             background-color: var(--primary-bg);
             border-top: 1px solid var(--border);
@@ -161,13 +164,27 @@
             font-size: 0.95rem;
             padding: 10px 15px;
             transition: color 0.2s;
+            display: block;
         }
 
         .custom-nav .nav-link:hover {
             color: var(--accent);
         }
 
-        /* Hero Section */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        .mobile-menu-btn:focus {
+            outline: none;
+        }
+
         .hero-section {
             margin: 20px 0;
         }
@@ -352,7 +369,6 @@
             background-color: white;
         }
 
-        /* Section Headers */
         .section-header {
             text-align: center;
             padding: 30px 0;
@@ -371,7 +387,6 @@
             color: var(--text-muted);
         }
 
-        /* Info Box */
         .info-box {
             background-color: var(--secondary-bg);
             border-radius: 8px;
@@ -518,7 +533,6 @@
             font-weight: bold;
         }
 
-        /* Program Item */
         .program-item {
             background-color: var(--secondary-bg);
             border-radius: 8px;
@@ -586,7 +600,6 @@
             color: var(--text-muted);
         }
 
-        /* Schedule Table */
         .schedule-table {
             background-color: var(--secondary-bg);
             border-radius: 8px;
@@ -626,7 +639,6 @@
             font-size: 0.85rem;
         }
 
-        /* Studio Info */
         .studio-info {
             background-color: var(--secondary-bg);
             border-radius: 8px;
@@ -651,7 +663,6 @@
             border-bottom: none;
         }
 
-        /* Berita Tabs */
         .berita-tabs {
             display: flex;
             gap: 10px;
@@ -684,7 +695,6 @@
             background-color: var(--hover-bg);
         }
 
-        /* Berita Card */
         .berita-card {
             background-color: var(--secondary-bg);
             border-radius: 8px;
@@ -745,7 +755,6 @@
             color: var(--accent);
         }
 
-        /* View More Button */
         .view-more {
             width: 200px;
             display: block;
@@ -781,7 +790,6 @@
             color: var(--red);
         }
 
-        /* Footer */
         footer {
             background-color: var(--accent);
             color: #000;
@@ -899,7 +907,56 @@
             text-decoration: underline;
         }
 
-        /* Responsive adjustments */
+        @media (max-width: 991.98px) {
+            body {
+                padding-top: 154px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .custom-nav .nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--primary-bg);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            }
+            
+            .custom-nav .nav.show {
+                display: flex;
+            }
+            
+            .custom-nav .nav-item {
+                width: 100%;
+            }
+            
+            .custom-nav .nav-link {
+                padding: 12px 20px;
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .custom-nav .nav-link:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+            }
+            
+            .custom-nav .nav {
+                flex-wrap: nowrap;
+            }
+        }
+        
         @media (max-width: 768px) {
             .custom-nav .nav-link {
                 padding: 8px 10px;
@@ -923,9 +980,39 @@
             .search-input {
                 margin-bottom: 10px;
             }
+            
+            .radio-title h1 {
+                font-size: 1.2rem;
+            }
+            
+            .logo-img {
+                height: 50px;
+            }
+            
+            .admin-btn {
+                padding: 6px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .hero-section {
+                margin-top: 10px;
+            }
+            
+            .player-controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .control-btn {
+                width: 100%;
+            }
         }
         
         @media (max-width: 576px) {
+            body {
+                padding-top: 160px;
+            }
+            
             .on-air-status {
                 flex-wrap: wrap;
                 justify-content: center;
@@ -950,78 +1037,127 @@
             .schedule-day {
                 width: 100%;
             }
+            
+            .sticky-header {
+                position: fixed;
+            }
+            
+            .radio-title h1 {
+                font-size: 1rem;
+            }
+            
+            .radio-title p {
+                font-size: 0.8rem;
+            }
+            
+            .search-input {
+                width: 100% !important;
+            }
+            
+            .main-header .d-flex {
+                flex-direction: column;
+                align-items: flex-start !important;
+            }
+            
+            .main-header .d-flex > div {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            .main-header .d-flex > div:last-child {
+                margin-bottom: 0;
+            }
+        }
+        
+        @media (max-width: 375px) {
+            body {
+                padding-top: 165px;
+            }
+            
+            .radio-title h1 {
+                font-size: 0.9rem;
+            }
+            
+            .on-air-badge {
+                font-size: 0.7rem;
+            }
+            
+            .live-info span {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Header Top Bar -->
-    <div class="header-top-bar">
-        <div class="custom-container">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                <div class="on-air-status mb-2 mb-md-0">
-                    <span class="on-air-badge">ON AIR</span>
-                    <span>Live: Siaran Langsung</span>
-                    <div class="live-info">
-                        <span><i class="fas fa-wifi"></i> FM 91,6 MHz</span>
+    <div class="sticky-header">
+        <div class="header-top-bar">
+            <div class="custom-container">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                    <div class="on-air-status mb-2 mb-md-0">
+                        <span class="on-air-badge">ON AIR</span>
+                        <span>Live: Siaran Langsung</span>
+                        <div class="live-info">
+                            <span><i class="fas fa-wifi"></i> FM 91,6 MHz</span>
+                        </div>
                     </div>
+                    <a href="#" class="live-radio-link">
+                        <i class="fas fa-volume-up"></i> Live Radio
+                    </a>
                 </div>
-                <a href="#" class="live-radio-link">
-                    <i class="fas fa-volume-up"></i> Live Radio
-                </a>
             </div>
         </div>
+
+        <header class="main-header">
+            <div class="custom-container">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                    <div class="d-flex align-items-center mb-3 mb-md-0">
+                        <img src="{{ asset('images/logo.jpg') }}" alt="Logo RSPD" class="logo-img me-3">
+                        <div class="radio-title">
+                            <h1>Radio Siaran Pemerintah Daerah</h1>
+                            <p>Kabupaten Klaten - FM 91,6 MHz</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-sm-row align-items-center justify-content-end w-100 w-md-auto">
+                        <div class="position-relative mb-2 mb-sm-0 me-sm-2 w-100 w-sm-auto" style="min-width: 200px;">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" class="form-control search-input" placeholder="Cari berita, program...">
+                        </div>
+                        <button class="admin-btn">Admin</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="custom-nav">
+            <div class="custom-container nav-container">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav justify-content-start flex-wrap" id="mainNav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Program Siaran</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Berita</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Live Streaming</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </div>
 
-    <!-- Main Header -->
-    <header class="main-header">
-        <div class="custom-container">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                <div class="d-flex align-items-center mb-3 mb-md-0">
-                    <img src="{{ asset('images/logo.jpg') }}" alt="Logo RSPD" class="logo-img me-3">
-                    <div class="radio-title">
-                        <h1>Radio Siaran Pemerintah Daerah</h1>
-                        <p>Kabupaten Klaten - FM 91,6 MHz</p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-sm-row align-items-center justify-content-end w-50 w-md-auto">
-                    <div class="position-relative mb-2 mb-sm-0 me-sm-2 w-50">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" class="form-control search-input" placeholder="Cari berita, program...">
-                    </div>
-                    <button class="admin-btn">Admin</button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Navigation -->
-    <nav class="custom-nav">
-        <div class="custom-container">
-            <ul class="nav justify-content-start flex-wrap">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Program Siaran</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Berita</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Live Streaming</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Tentang Kami</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Kontak</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
     <section class="hero-section">
         <div class="custom-container">
             <div class="row g-4">
@@ -1081,7 +1217,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="section-header">
         <div class="custom-container">
             <h2>Radio Siaran Pemerintah Daerah <span style="color: var(--accent);">Klaten</span></h2>
@@ -1090,7 +1225,6 @@
         </div>
     </section>
 
-    <!-- Info Sections -->
     <section class="mb-5">
         <div class="custom-container">
             <div class="row g-4">
@@ -1164,7 +1298,6 @@
         </div>
     </section>
 
-    <!-- Program Section -->
     <section class="section-header">
         <div class="custom-container">
             <h2>Program Siaran</h2>
@@ -1293,7 +1426,6 @@
         </div>
     </section>
 
-    <!-- Berita Section -->
     <section class="section-header">
         <div class="custom-container">
             <h2>Berita & Artikel</h2>
@@ -1368,7 +1500,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="custom-container">
             <div class="row g-4">
@@ -1441,25 +1572,19 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Simple tab functionality for berita tabs
         document.addEventListener('DOMContentLoaded', function() {
             const tabs = document.querySelectorAll('.berita-tab');
             
             tabs.forEach(tab => {
                 tab.addEventListener('click', function() {
-                    // Remove active class from all tabs
                     tabs.forEach(t => t.classList.remove('active'));
-                    
-                    // Add active class to clicked tab
                     this.classList.add('active');
                 });
             });
             
-            // Play button functionality
             const playButton = document.querySelector('.play-button');
             if (playButton) {
                 playButton.addEventListener('click', function() {
@@ -1473,6 +1598,55 @@
                     }
                 });
             }
+            
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mainNav = document.getElementById('mainNav');
+            
+            if (mobileMenuBtn && mainNav) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mainNav.classList.toggle('show');
+                    
+                    const icon = this.querySelector('i');
+                    if (icon.classList.contains('fa-bars')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+                
+                document.addEventListener('click', function(event) {
+                    if (!event.target.closest('.nav-container') && mainNav.classList.contains('show')) {
+                        mainNav.classList.remove('show');
+                        const icon = mobileMenuBtn.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+                
+                const navLinks = mainNav.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mainNav.classList.remove('show');
+                        const icon = mobileMenuBtn.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    });
+                });
+            }
+            
+            function adjustBodyPadding() {
+                const stickyHeader = document.querySelector('.sticky-header');
+                if (stickyHeader) {
+                    const headerHeight = stickyHeader.offsetHeight;
+                    document.body.style.paddingTop = headerHeight + 'px';
+                }
+            }
+            
+            window.addEventListener('load', adjustBodyPadding);
+            window.addEventListener('resize', adjustBodyPadding);
+            adjustBodyPadding();
         });
     </script>
 </body>
