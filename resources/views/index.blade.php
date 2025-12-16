@@ -7,7 +7,6 @@
     <title>Radio Siaran Pemerintah Daerah Klaten</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <style>
         :root {
             --primary-bg: #0d121e;
@@ -233,9 +232,68 @@
 
         .player-image {
             position: relative;
-            height: 300px;
-            background: url('https://via.placeholder.com/800x300') no-repeat center;
+            height: 420px;
+            background: url('{{ asset('images/photo-live.jpg') }}') no-repeat center;
             background-size: cover;
+        }
+
+        .player-image::before {
+            content: '';
+            position: absolute;
+            top: 18px;
+            left: 14px;
+            width: 80px;
+            height: 36px;
+            background-color: var(--accent);
+            border-radius: 4px;
+            z-index: 1;
+        }
+
+        .rspd-overlay {
+            position: absolute;
+            top: 10px;
+            left: 12px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding: 10px;
+        }
+
+        .rspd-overlay .rspd-text {
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .rspd-overlay .frequency-text {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .listeners-overlay {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .listeners-overlay .listener-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--red);
+            border-radius: 50%;
         }
 
         .play-button {
@@ -253,6 +311,8 @@
             cursor: pointer;
             border: 2px solid var(--text-light);
             transition: transform 0.3s;
+            z-index: 3;
+            /* Pastikan tombol tetap di atas overlay teks dan gambar */
         }
 
         .play-button:hover {
@@ -405,7 +465,7 @@
 
         .profile-img {
             width: 100%;
-            height: 200px;
+            height: 300px;
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 15px;
@@ -1338,7 +1398,6 @@
                 </div>
             </div>
         </div>
-
         <header class="main-header">
             <div class="custom-container">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
@@ -1360,7 +1419,6 @@
                 </div>
             </div>
         </header>
-
         <nav class="custom-nav">
             <div class="custom-container nav-container">
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1386,23 +1444,20 @@
             </div>
         </nav>
     </div>
-
     <section class="hero-section" id="home">
         <div class="custom-container">
             <div class="row g-4">
                 <div class="col-lg-8">
                     <div class="live-player">
-                        <div class="player-header">
-                            <div class="station-logo">
-                                <span>RSPD</span>
-                                <span>107.5 FM KLATEN</span>
+                        <div class="player-image">
+                            <div class="rspd-overlay">
+                                <div class="rspd-text">RSPD</div>
+                                <div class="frequency-text">107.5 FM KLATEN</div>
                             </div>
-                            <div class="listeners">
+                            <div class="listeners-overlay">
                                 <span class="listener-dot"></span>
                                 <span>140</span>
                             </div>
-                        </div>
-                        <div class="player-image">
                             <div class="play-button">
                                 <i class="fas fa-play"></i>
                             </div>
@@ -1445,7 +1500,6 @@
             </div>
         </div>
     </section>
-
     <section class="section-header">
         <div class="custom-container">
             <h2>Radio Siaran Pemerintah Daerah <span style="color: var(--accent);">Klaten</span></h2>
@@ -1454,14 +1508,13 @@
                 siaran langsung 24/7 di FM 107.5 MHz.</p>
         </div>
     </section>
-
     <section class="mb-5" id="tentang">
         <div class="custom-container">
             <div class="row g-4">
                 <div class="col-lg-6">
                     <div class="info-box">
                         <h3><i class="fas fa-building"></i> Profil Radio</h3>
-                        <img src="https://via.placeholder.com/400x200" alt="Profil Radio" class="profile-img">
+                        <img src="{{ asset('images/profile.jpg') }}" alt="Profil Radio" class="profile-img">
                         <div class="visi-misi">
                             <h4>Visi & Misi</h4>
                             <p><strong>Visi:</strong> Menjadi media komunikasi publik terdepan dalam menyampaikan
@@ -1530,14 +1583,12 @@
             </div>
         </div>
     </section>
-
     <section class="section-header" id="program-siaran">
         <div class="custom-container">
             <h2>Program Siaran</h2>
             <p>Program unggulan yang siap melayani informasi terbaik untuk masyarakat Klaten</p>
         </div>
     </section>
-
     <section class="mb-5">
         <div class="custom-container">
             <div class="row g-4">
@@ -1573,7 +1624,6 @@
                             <span>Host: Tim Redaksi</span>
                         </div>
                     </div>
-
                     <div class="schedule-table">
                         <h3><i class="far fa-calendar-alt"></i> Jadwal Mingguan</h3>
                         <div class="schedule-row">
@@ -1658,14 +1708,12 @@
             </div>
         </div>
     </section>
-
     <section class="section-header" id="berita">
         <div class="custom-container">
             <h2>Berita & Artikel</h2>
             <p>Informasi terkini dari Pemerintah Kabupaten Klaten, budaya lokal, dan aktivitas masyarakat</p>
         </div>
     </section>
-
     <section class="mb-5">
         <div class="custom-container">
             <div class="berita-tabs">
@@ -1674,7 +1722,6 @@
                 <button class="berita-tab">Musik</button>
                 <button class="berita-tab">Komunitas</button>
             </div>
-
             <div class="row g-4 mt-3">
                 <div class="col-md-4">
                     <div class="berita-card">
@@ -1722,11 +1769,9 @@
                     </div>
                 </div>
             </div>
-
             <a href="#" class="view-more">Lihat Berita Lainnya</a>
         </div>
     </section>
-
     <section id="kontak" class="mb-5">
         <div class="custom-container">
             <div class="section-header text-center mb-4">
@@ -1788,7 +1833,6 @@
                         </form>
                     </div>
                 </div>
-
                 <!-- Informasi Kontak & Jam Operasional -->
                 <div class="col-lg-4">
                     <!-- Informasi Kontak -->
@@ -1834,7 +1878,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Jam Operasional -->
                     <div class="contact-section-card mb-4">
                         <h3 class="mb-4"><i class="far fa-clock me-2"></i> Jam Operasional</h3>
@@ -1857,7 +1900,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Lokasi Studio -->
                     <div class="contact-section-card">
                         <h3 class="mb-4"><i class="fas fa-map-marked-alt me-2"></i> Lokasi Studio</h3>
@@ -1887,7 +1929,6 @@
             </div>
         </div>
     </section>
-
     <footer>
         <div class="custom-container">
             <div class="row g-4">
@@ -1959,20 +2000,16 @@
             </div>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const tabs = document.querySelectorAll('.berita-tab');
-
             tabs.forEach(tab => {
                 tab.addEventListener('click', function() {
                     tabs.forEach(t => t.classList.remove('active'));
                     this.classList.add('active');
                 });
             });
-
             const playButton = document.querySelector('.play-button');
             if (playButton) {
                 playButton.addEventListener('click', function() {
@@ -1986,14 +2023,11 @@
                     }
                 });
             }
-
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mainNav = document.getElementById('mainNav');
-
             if (mobileMenuBtn && mainNav) {
                 mobileMenuBtn.addEventListener('click', function() {
                     mainNav.classList.toggle('show');
-
                     const icon = this.querySelector('i');
                     if (icon.classList.contains('fa-bars')) {
                         icon.classList.remove('fa-bars');
@@ -2003,7 +2037,6 @@
                         icon.classList.add('fa-bars');
                     }
                 });
-
                 document.addEventListener('click', function(event) {
                     if (!event.target.closest('.nav-container') && mainNav.classList.contains('show')) {
                         mainNav.classList.remove('show');
@@ -2012,7 +2045,6 @@
                         icon.classList.add('fa-bars');
                     }
                 });
-
                 const navLinks = mainNav.querySelectorAll('.nav-link');
                 navLinks.forEach(link => {
                     link.addEventListener('click', function() {
@@ -2031,7 +2063,6 @@
                     document.body.style.paddingTop = headerHeight + 'px';
                 }
             }
-
             window.addEventListener('load', adjustBodyPadding);
             window.addEventListener('resize', adjustBodyPadding);
             adjustBodyPadding();
