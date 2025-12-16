@@ -423,9 +423,17 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         .next-program {
@@ -1544,7 +1552,8 @@
                         </div>
                         <div class="volume-control">
                             <i class="fas fa-volume-up volume-icon" id="volumeIcon"></i>
-                            <input type="range" min="0" max="100" value="70" class="volume-slider" id="volumeSlider">
+                            <input type="range" min="0" max="100" value="70" class="volume-slider"
+                                id="volumeSlider">
                         </div>
                         <div class="player-controls">
                             <div class="control-btn" id="hearButton">
@@ -1611,8 +1620,8 @@
                         <ul class="info-list">
                             <li><i class="far fa-clock"></i> Berdiri sejak 1995</li>
                             <li><i class="far fa-user"></i> 20+ Program</li>
-                            <li><i class="fas fa-map-marker-alt"></i> Jl. Pemuda No. 1</li>
-                            <li><i class="fas fa-phone"></i> (0272) 321888</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Jl. Pemuda No. 140, Klaten</li>
+                            <li><i class="fas fa-phone"></i> (0272) 329450</li>
                         </ul>
                     </div>
                 </div>
@@ -1926,8 +1935,7 @@
                             </div>
                             <div class="contact-content">
                                 <strong>Telepon</strong>
-                                <div>(0272) 321888</div>
-                                <div>(0272) 321999</div>
+                                <div>(0272) 329450</div>
                             </div>
                         </div>
                         <div class="contact-detail-item">
@@ -1936,7 +1944,7 @@
                             </div>
                             <div class="contact-content">
                                 <strong>WhatsApp</strong>
-                                <div>+62 812-3456-7890</div>
+                                <div>+62889 0294 9093</div>
                             </div>
                         </div>
                         <div class="contact-detail-item">
@@ -1945,8 +1953,7 @@
                             </div>
                             <div class="contact-content">
                                 <strong>Email</strong>
-                                <div>radio@klatenkab.go.id</div>
-                                <div>info@radiopemkabklaten.id</div>
+                                <div>klatenrspd@gmail.com</div>
                             </div>
                         </div>
                         <div class="contact-detail-item">
@@ -1955,8 +1962,8 @@
                             </div>
                             <div class="contact-content">
                                 <strong>Alamat</strong>
-                                <div>Jl. Pemuda No. 1</div>
-                                <div>Klaten Tengah, Klaten 57411</div>
+                                <div>Jl. Pemuda No. 140</div>
+                                <div>Klaten</div>
                             </div>
                         </div>
                     </div>
@@ -2022,9 +2029,9 @@
                         <p>Radio Siaran Pemerintah Daerah Klaten - Menyajikan informasi resmi, program berkualitas, dan
                             hiburan untuk masyarakat Klaten sejak 1995.</p>
                         <div class="footer-contact">
-                            <p><i class="fas fa-map-marker-alt me-2"></i> Jl. Pemuda No. 1, Klaten</p>
-                            <p><i class="fas fa-phone me-2"></i> (0272) 321888</p>
-                            <p><i class="fas fa-envelope me-2"></i> radio@klatenkab.go.id</p>
+                            <p><i class="fas fa-map-marker-alt me-2"></i> Jl. Pemuda No. 140, Klaten</p>
+                            <p><i class="fas fa-phone me-2"></i> (0272) 329450</p>
+                            <p><i class="fas fa-envelope me-2"></i> klatenrspd@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -2095,14 +2102,14 @@
             const streamingStatus = document.getElementById('streamingStatus');
             const statusText = document.getElementById('statusText');
             const statusIndicator = document.getElementById('statusIndicator');
-            
+
             const streamUrl = "https://studio1.indostreamers.com:8020/stream";
-            
+
             let isPlaying = false;
-            
+
             radioStream.src = streamUrl;
             radioStream.volume = volumeSlider.value / 100;
-            
+
             function updateVolumeIcon(volume) {
                 if (volume === 0) {
                     volumeIcon.className = "fas fa-volume-mute volume-icon";
@@ -2112,11 +2119,11 @@
                     volumeIcon.className = "fas fa-volume-up volume-icon";
                 }
             }
-            
+
             function updateStatus(playing, message) {
                 isPlaying = playing;
                 statusText.textContent = message;
-                
+
                 if (playing) {
                     playIcon.className = "fas fa-pause";
                     playButton.classList.add('playing');
@@ -2129,7 +2136,7 @@
                     statusIndicator.style.backgroundColor = 'var(--red)';
                 }
             }
-            
+
             function togglePlayback() {
                 if (isPlaying) {
                     radioStream.pause();
@@ -2140,36 +2147,40 @@
                     }).catch(error => {
                         console.error("Error playing audio:", error);
                         updateStatus(false, "Error: Gagal memulai streaming. Coba lagi.");
-                        
+
                         if (error.name === 'NotSupportedError' || error.name === 'TypeError') {
                             setTimeout(() => {
                                 radioStream.load();
                                 radioStream.play().then(() => {
-                                    updateStatus(true, "Radio Streaming Live - RSPD Klaten FM 91.6 MHz");
+                                    updateStatus(true,
+                                        "Radio Streaming Live - RSPD Klaten FM 91.6 MHz"
+                                    );
                                 }).catch(err => {
                                     console.error("Second attempt failed:", err);
-                                    updateStatus(false, "Error: Browser tidak mendukung streaming audio. Coba browser lain.");
+                                    updateStatus(false,
+                                        "Error: Browser tidak mendukung streaming audio. Coba browser lain."
+                                    );
                                 });
                             }, 500);
                         }
                     });
                 }
             }
-            
+
             playButton.addEventListener('click', togglePlayback);
             headerLiveRadio.addEventListener('click', function(e) {
                 e.preventDefault();
                 togglePlayback();
             });
-            
+
             volumeSlider.addEventListener('input', function() {
                 const volume = this.value / 100;
                 radioStream.volume = volume;
                 updateVolumeIcon(volume);
-                
+
                 localStorage.setItem('radioVolume', volume);
             });
-            
+
             const savedVolume = localStorage.getItem('radioVolume');
             if (savedVolume !== null) {
                 const volume = parseFloat(savedVolume);
@@ -2177,30 +2188,30 @@
                 radioStream.volume = volume;
                 updateVolumeIcon(volume);
             }
-            
+
             radioStream.addEventListener('playing', function() {
                 updateStatus(true, "Radio Streaming Live - RSPD Klaten FM 91.6 MHz");
             });
-            
+
             radioStream.addEventListener('pause', function() {
                 if (!radioStream.ended) {
                     updateStatus(false, "Radio Paused - Klik tombol play untuk melanjutkan");
                 }
             });
-            
+
             radioStream.addEventListener('ended', function() {
                 updateStatus(false, "Streaming ended - Klik tombol play untuk memulai kembali");
             });
-            
+
             radioStream.addEventListener('error', function(e) {
                 console.error("Audio error:", radioStream.error);
                 updateStatus(false, "Error: Gagal memuat stream. Coba refresh halaman.");
             });
-            
+
             radioStream.addEventListener('waiting', function() {
                 statusText.textContent = "Buffering... Harap tunggu";
             });
-            
+
             const tabs = document.querySelectorAll('.berita-tab');
             tabs.forEach(tab => {
                 tab.addEventListener('click', function() {
@@ -2300,15 +2311,15 @@
             const hearButton = document.getElementById('hearButton');
             const chatButton = document.getElementById('chatButton');
             const livechatButton = document.getElementById('livechatButton');
-            
+
             hearButton.addEventListener('click', function() {
                 togglePlayback();
             });
-            
+
             chatButton.addEventListener('click', function() {
                 alert('Fitur chat akan segera hadir!');
             });
-            
+
             livechatButton.addEventListener('click', function() {
                 alert('Live chat tersedia pada jam siaran interaktif.');
             });
