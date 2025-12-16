@@ -2010,6 +2010,7 @@
                     this.classList.add('active');
                 });
             });
+
             const playButton = document.querySelector('.play-button');
             if (playButton) {
                 playButton.addEventListener('click', function() {
@@ -2023,6 +2024,7 @@
                     }
                 });
             }
+
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mainNav = document.getElementById('mainNav');
             if (mobileMenuBtn && mainNav) {
@@ -2037,6 +2039,7 @@
                         icon.classList.add('fa-bars');
                     }
                 });
+
                 document.addEventListener('click', function(event) {
                     if (!event.target.closest('.nav-container') && mainNav.classList.contains('show')) {
                         mainNav.classList.remove('show');
@@ -2045,6 +2048,7 @@
                         icon.classList.add('fa-bars');
                     }
                 });
+
                 const navLinks = mainNav.querySelectorAll('.nav-link');
                 navLinks.forEach(link => {
                     link.addEventListener('click', function() {
@@ -2063,9 +2067,51 @@
                     document.body.style.paddingTop = headerHeight + 'px';
                 }
             }
+
             window.addEventListener('load', adjustBodyPadding);
             window.addEventListener('resize', adjustBodyPadding);
             adjustBodyPadding();
+
+            document.querySelectorAll('.custom-nav .nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#home') {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    } else if (targetId.startsWith('#')) {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            const sectionHeader = targetElement.querySelector('h2');
+
+                            let scrollPosition;
+                            if (sectionHeader) {
+                                const headerHeight = document.querySelector('.sticky-header')
+                                    .offsetHeight;
+                                const sectionTop = sectionHeader.getBoundingClientRect().top;
+                                const currentScroll = window.pageYOffset;
+
+                                scrollPosition = currentScroll + sectionTop - headerHeight - 20;
+                            } else {
+                                const headerHeight = document.querySelector('.sticky-header')
+                                    .offsetHeight;
+                                const sectionTop = targetElement.getBoundingClientRect().top;
+                                const currentScroll = window.pageYOffset;
+
+                                scrollPosition = currentScroll + sectionTop - headerHeight;
+                            }
+
+                            window.scrollTo({
+                                top: scrollPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
         });
     </script>
 </body>
