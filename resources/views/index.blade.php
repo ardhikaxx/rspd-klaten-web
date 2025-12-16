@@ -317,11 +317,16 @@
 
         .play-button:hover {
             transform: translate(-50%, -50%) scale(1.1);
-            background-color: rgba(255, 215, 0, 0.7);
         }
 
         .play-button.playing {
-            background-color: rgba(255, 59, 59, 0.7);
+            background-color: rgba(255, 59, 59, 0.5);
+        }
+
+        .fa-play {
+            margin-left: 4px;
+            color: white;
+            font-size: 24px;
         }
 
         .play-button i {
@@ -1307,51 +1312,53 @@
             font-weight: 500;
         }
 
-        .map-placeholder {
-            height: 180px;
-            background: linear-gradient(135deg, var(--gray) 25%, var(--secondary-bg) 25%, var(--secondary-bg) 50%, var(--gray) 50%, var(--gray) 75%, var(--secondary-bg) 75%, var(--secondary-bg) 100%);
-            background-size: 40px 40px;
+        /* Updated Google Maps Styles */
+        .google-map-container {
+            height: 280px;
             border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            position: relative;
             overflow: hidden;
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+            position: relative;
         }
 
-        .map-placeholder::before {
-            content: '';
+        .google-map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(20%) contrast(1.1);
+        }
+
+        .map-overlay {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: linear-gradient(to bottom, rgba(13, 18, 30, 0.3), rgba(13, 18, 30, 0.1));
+            pointer-events: none;
+            border-radius: 8px;
         }
 
-        .map-placeholder i {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 10px;
-            z-index: 1;
+        .map-info {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(13, 18, 30, 0.85);
+            padding: 8px 12px;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent);
+            z-index: 2;
         }
 
-        .map-placeholder .map-text {
-            z-index: 1;
-            text-align: center;
-        }
-
-        .map-placeholder .map-text div:first-child {
-            font-size: 1rem;
+        .map-info div:first-child {
+            font-size: 0.9rem;
             color: var(--text-light);
             font-weight: 600;
-            margin-bottom: 3px;
         }
 
-        .map-placeholder .map-text div:last-child {
-            font-size: 0.9rem;
+        .map-info div:last-child {
+            font-size: 0.8rem;
             color: var(--text-muted);
         }
 
@@ -1426,8 +1433,8 @@
                 height: 36px;
             }
 
-            .map-placeholder {
-                height: 150px;
+            .google-map-container {
+                height: 220px;
             }
         }
 
@@ -1445,6 +1452,10 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 5px;
+            }
+
+            .google-map-container {
+                height: 180px;
             }
         }
     </style>
@@ -1789,7 +1800,7 @@
     </section>
     <section class="section-header" id="berita">
         <div class="custom-container">
-            <h2>Berita & Artikel</h2>
+            <h2>Berita Terkini</h2>
             <p>Informasi terkini dari Pemerintah Kabupaten Klaten, budaya lokal, dan aktivitas masyarakat</p>
         </div>
     </section>
@@ -1976,14 +1987,21 @@
                     </div>
                     <div class="contact-section-card">
                         <h3 class="mb-4"><i class="fas fa-map-marked-alt me-2"></i> Lokasi Studio</h3>
-                        <div class="map-placeholder mb-3">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="map-text">
-                                <div>Google Maps</div>
-                                <div>Jl. Pemuda No. 1, Klaten</div>
+                        <div class="google-map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.859748804551!2d110.60146134920434!3d-7.698196672575521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a43f9c0ef424d%3A0x439fcb157f7884f0!2sJl.%20Pemuda%20Utara%20No.140%2C%20Tegalputihan%2C%20Bareng%20Lor%2C%20Kec.%20Klaten%20Utara%2C%20Kabupaten%20Klaten%2C%20Jawa%20Tengah%2057414!5e0!3m2!1sid!2sid!4v1765877523529!5m2!1sid!2sid"
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                            <div class="map-overlay"></div>
+                            <div class="map-info">
+                                <div>RSPD Klaten</div>
+                                <div>Jl. Pemuda Utara No.140</div>
                             </div>
                         </div>
-                        <a href="#"
+                        <a href="https://www.google.com/maps/place/Jl.+Pemuda+Utara+No.140,+Tegalputihan,+Bareng+Lor,+Kec.+Klaten+Utara,+Kabupaten+Klaten,+Jawa+Tengah+57414/@-7.6981967,110.6014613,17z/data=!3m1!4b1!4m6!3m5!1s0x2e7a43f9c0ef424d:0x439fcb157f7884f0!8m2!3d-7.6981967!4d110.6040362!16s%2Fg%2F11t3y_nszg?entry=ttu"
+                            target="_blank" 
                             class="btn btn-outline-light w-100 d-flex align-items-center justify-content-center py-2">
                             <i class="fas fa-external-link-alt me-2"></i> Buka di Google Maps
                         </a>
