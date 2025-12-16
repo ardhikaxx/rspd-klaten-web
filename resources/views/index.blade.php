@@ -1017,20 +1017,6 @@
             color: #000;
         }
 
-        .info-siaran .red-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--red);
-            border-radius: 50%;
-        }
-
-        .info-siaran .blue-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--blue);
-            border-radius: 50%;
-        }
-
         .footer-bottom {
             display: flex;
             justify-content: space-between;
@@ -2067,11 +2053,6 @@
                             <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                        </div>
-                        <div class="info-siaran">
-                            <div><i class="fas fa-wifi blue-dot"></i> FM 107.5 MHz</div>
-                            <div><i class="fas fa-circle red-dot"></i> Live 24/7</div>
-                            <div><i class="fas fa-laptop"></i> Streaming Online</div>
                         </div>
                     </div>
                 </div>
