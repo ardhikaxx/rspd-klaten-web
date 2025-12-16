@@ -84,6 +84,7 @@
             color: var(--accent);
             font-size: 0.9rem;
             text-decoration: none;
+            cursor: pointer;
         }
 
         .live-radio-link:hover {
@@ -310,13 +311,17 @@
             justify-content: center;
             cursor: pointer;
             border: 2px solid var(--text-light);
-            transition: transform 0.3s;
+            transition: transform 0.3s, background-color 0.3s;
             z-index: 3;
-            /* Pastikan tombol tetap di atas overlay teks dan gambar */
         }
 
         .play-button:hover {
             transform: translate(-50%, -50%) scale(1.1);
+            background-color: rgba(255, 215, 0, 0.7);
+        }
+
+        .play-button.playing {
+            background-color: rgba(255, 59, 59, 0.7);
         }
 
         .play-button i {
@@ -349,6 +354,78 @@
 
         .control-btn:hover {
             background-color: #e6c200;
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            background-color: var(--secondary-bg);
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .volume-slider {
+            flex-grow: 1;
+            -webkit-appearance: none;
+            height: 5px;
+            background: var(--gray);
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 15px;
+            height: 15px;
+            background: var(--accent);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .volume-slider::-moz-range-thumb {
+            width: 15px;
+            height: 15px;
+            background: var(--accent);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        .volume-icon {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        .streaming-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 10px;
+            background-color: rgba(0, 102, 255, 0.1);
+            border-radius: 4px;
+            margin: 10px 15px;
+            font-size: 0.9rem;
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--red);
+            animation: pulse 2s infinite;
+        }
+
+        .status-indicator.playing {
+            background-color: #00ff00;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
 
         .next-program {
@@ -1341,7 +1418,6 @@
             color: #000;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .contact-section-card {
                 padding: 20px;
@@ -1392,7 +1468,7 @@
                             <span><i class="fas fa-wifi"></i> FM 91,6 MHz</span>
                         </div>
                     </div>
-                    <a href="#" class="live-radio-link">
+                    <a href="#" class="live-radio-link" id="headerLiveRadio">
                         <i class="fas fa-volume-up"></i> Live Radio
                     </a>
                 </div>
@@ -1449,29 +1525,37 @@
             <div class="row g-4">
                 <div class="col-lg-8">
                     <div class="live-player">
+                        <div class="streaming-status" id="streamingStatus">
+                            <div class="status-indicator" id="statusIndicator"></div>
+                            <span id="statusText">Radio Offline - Klik tombol play untuk memulai streaming</span>
+                        </div>
                         <div class="player-image">
                             <div class="rspd-overlay">
                                 <div class="rspd-text">RSPD</div>
-                                <div class="frequency-text">107.5 FM KLATEN</div>
+                                <div class="frequency-text">91,6 FM KLATEN</div>
                             </div>
                             <div class="listeners-overlay">
                                 <span class="listener-dot"></span>
                                 <span>140</span>
                             </div>
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
+                            <div class="play-button" id="playButton">
+                                <i class="fas fa-play" id="playIcon"></i>
                             </div>
                         </div>
+                        <div class="volume-control">
+                            <i class="fas fa-volume-up volume-icon" id="volumeIcon"></i>
+                            <input type="range" min="0" max="100" value="70" class="volume-slider" id="volumeSlider">
+                        </div>
                         <div class="player-controls">
-                            <div class="control-btn">
+                            <div class="control-btn" id="hearButton">
                                 <i class="fas fa-headphones"></i>
                                 <span>Hear</span>
                             </div>
-                            <div class="control-btn">
+                            <div class="control-btn" id="chatButton">
                                 <i class="fas fa-comment"></i>
                                 <span>Chat</span>
                             </div>
-                            <div class="control-btn">
+                            <div class="control-btn" id="livechatButton">
                                 <i class="fas fa-wifi"></i>
                                 <span>Livechat</span>
                             </div>
@@ -1833,9 +1917,7 @@
                         </form>
                     </div>
                 </div>
-                <!-- Informasi Kontak & Jam Operasional -->
                 <div class="col-lg-4">
-                    <!-- Informasi Kontak -->
                     <div class="contact-section-card mb-4">
                         <h3 class="mb-4"><i class="fas fa-phone me-2"></i> Informasi Kontak</h3>
                         <div class="contact-detail-item">
@@ -1878,7 +1960,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Jam Operasional -->
                     <div class="contact-section-card mb-4">
                         <h3 class="mb-4"><i class="far fa-clock me-2"></i> Jam Operasional</h3>
                         <div class="operational-hours">
@@ -1900,7 +1981,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Lokasi Studio -->
                     <div class="contact-section-card">
                         <h3 class="mb-4"><i class="fas fa-map-marked-alt me-2"></i> Lokasi Studio</h3>
                         <div class="map-placeholder mb-3">
@@ -2000,9 +2080,127 @@
             </div>
         </div>
     </footer>
+
+    <audio id="radioStream" preload="none"></audio>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const radioStream = document.getElementById('radioStream');
+            const playButton = document.getElementById('playButton');
+            const playIcon = document.getElementById('playIcon');
+            const headerLiveRadio = document.getElementById('headerLiveRadio');
+            const volumeSlider = document.getElementById('volumeSlider');
+            const volumeIcon = document.getElementById('volumeIcon');
+            const streamingStatus = document.getElementById('streamingStatus');
+            const statusText = document.getElementById('statusText');
+            const statusIndicator = document.getElementById('statusIndicator');
+            
+            const streamUrl = "https://studio1.indostreamers.com:8020/stream";
+            
+            let isPlaying = false;
+            
+            radioStream.src = streamUrl;
+            radioStream.volume = volumeSlider.value / 100;
+            
+            function updateVolumeIcon(volume) {
+                if (volume === 0) {
+                    volumeIcon.className = "fas fa-volume-mute volume-icon";
+                } else if (volume < 0.5) {
+                    volumeIcon.className = "fas fa-volume-down volume-icon";
+                } else {
+                    volumeIcon.className = "fas fa-volume-up volume-icon";
+                }
+            }
+            
+            function updateStatus(playing, message) {
+                isPlaying = playing;
+                statusText.textContent = message;
+                
+                if (playing) {
+                    playIcon.className = "fas fa-pause";
+                    playButton.classList.add('playing');
+                    statusIndicator.classList.add('playing');
+                    statusIndicator.style.backgroundColor = '#00ff00';
+                } else {
+                    playIcon.className = "fas fa-play";
+                    playButton.classList.remove('playing');
+                    statusIndicator.classList.remove('playing');
+                    statusIndicator.style.backgroundColor = 'var(--red)';
+                }
+            }
+            
+            function togglePlayback() {
+                if (isPlaying) {
+                    radioStream.pause();
+                    updateStatus(false, "Radio Paused - Klik tombol play untuk melanjutkan");
+                } else {
+                    radioStream.play().then(() => {
+                        updateStatus(true, "Radio Streaming Live - RSPD Klaten FM 91.6 MHz");
+                    }).catch(error => {
+                        console.error("Error playing audio:", error);
+                        updateStatus(false, "Error: Gagal memulai streaming. Coba lagi.");
+                        
+                        if (error.name === 'NotSupportedError' || error.name === 'TypeError') {
+                            setTimeout(() => {
+                                radioStream.load();
+                                radioStream.play().then(() => {
+                                    updateStatus(true, "Radio Streaming Live - RSPD Klaten FM 91.6 MHz");
+                                }).catch(err => {
+                                    console.error("Second attempt failed:", err);
+                                    updateStatus(false, "Error: Browser tidak mendukung streaming audio. Coba browser lain.");
+                                });
+                            }, 500);
+                        }
+                    });
+                }
+            }
+            
+            playButton.addEventListener('click', togglePlayback);
+            headerLiveRadio.addEventListener('click', function(e) {
+                e.preventDefault();
+                togglePlayback();
+            });
+            
+            volumeSlider.addEventListener('input', function() {
+                const volume = this.value / 100;
+                radioStream.volume = volume;
+                updateVolumeIcon(volume);
+                
+                localStorage.setItem('radioVolume', volume);
+            });
+            
+            const savedVolume = localStorage.getItem('radioVolume');
+            if (savedVolume !== null) {
+                const volume = parseFloat(savedVolume);
+                volumeSlider.value = volume * 100;
+                radioStream.volume = volume;
+                updateVolumeIcon(volume);
+            }
+            
+            radioStream.addEventListener('playing', function() {
+                updateStatus(true, "Radio Streaming Live - RSPD Klaten FM 91.6 MHz");
+            });
+            
+            radioStream.addEventListener('pause', function() {
+                if (!radioStream.ended) {
+                    updateStatus(false, "Radio Paused - Klik tombol play untuk melanjutkan");
+                }
+            });
+            
+            radioStream.addEventListener('ended', function() {
+                updateStatus(false, "Streaming ended - Klik tombol play untuk memulai kembali");
+            });
+            
+            radioStream.addEventListener('error', function(e) {
+                console.error("Audio error:", radioStream.error);
+                updateStatus(false, "Error: Gagal memuat stream. Coba refresh halaman.");
+            });
+            
+            radioStream.addEventListener('waiting', function() {
+                statusText.textContent = "Buffering... Harap tunggu";
+            });
+            
             const tabs = document.querySelectorAll('.berita-tab');
             tabs.forEach(tab => {
                 tab.addEventListener('click', function() {
@@ -2010,20 +2208,6 @@
                     this.classList.add('active');
                 });
             });
-
-            const playButton = document.querySelector('.play-button');
-            if (playButton) {
-                playButton.addEventListener('click', function() {
-                    const icon = this.querySelector('i');
-                    if (icon.classList.contains('fa-play')) {
-                        icon.classList.remove('fa-play');
-                        icon.classList.add('fa-pause');
-                    } else {
-                        icon.classList.remove('fa-pause');
-                        icon.classList.add('fa-play');
-                    }
-                });
-            }
 
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mainNav = document.getElementById('mainNav');
@@ -2112,6 +2296,24 @@
                     }
                 });
             });
+
+            const hearButton = document.getElementById('hearButton');
+            const chatButton = document.getElementById('chatButton');
+            const livechatButton = document.getElementById('livechatButton');
+            
+            hearButton.addEventListener('click', function() {
+                togglePlayback();
+            });
+            
+            chatButton.addEventListener('click', function() {
+                alert('Fitur chat akan segera hadir!');
+            });
+            
+            livechatButton.addEventListener('click', function() {
+                alert('Live chat tersedia pada jam siaran interaktif.');
+            });
+
+            updateStatus(false, "Radio Offline - Klik tombol play untuk memulai streaming");
         });
     </script>
 </body>
