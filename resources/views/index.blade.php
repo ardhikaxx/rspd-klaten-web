@@ -1478,7 +1478,7 @@
                             <p>Kabupaten Klaten - FM 91,6 MHz</p>
                         </div>
                     </div>
-                    <div class="d-flex flex-column flex-sm-row align-items-center justify-content-end w-100 w-md-auto">
+                    <div class="d-flex flex-column flex-sm-row align-items-center justify-content-end w-50 w-md-auto">
                         <div class="position-relative mb-2 mb-sm-0 me-sm-2 w-100 w-sm-auto" style="min-width: 200px;">
                             <i class="fas fa-search search-icon"></i>
                             <input type="text" class="form-control search-input"
