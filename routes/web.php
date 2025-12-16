@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ManajemenBeritaController;
+use App\Http\Controllers\SettingsController;
 
 Route::get('/', function () {
     return view('index');
@@ -22,6 +23,13 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/berita/{id}', [ManajemenBeritaController::class, 'show']);
     Route::post('/admin/berita/{id}', [ManajemenBeritaController::class, 'update']);
     Route::delete('/admin/berita/{id}', [ManajemenBeritaController::class, 'destroy']);
+    
+    // Settings Routes
+    Route::get('/admin/settings', [SettingsController::class, 'index'])->name('settings.index');
+    Route::post('/admin/settings/profile', [SettingsController::class, 'updateProfile'])->name('settings.update-profile');
+    Route::post('/admin/settings/password', [SettingsController::class, 'updatePassword'])->name('settings.update-password');
+    Route::post('/admin/settings', [SettingsController::class, 'store'])->name('settings.store');
+    Route::delete('/admin/settings/{id}', [SettingsController::class, 'destroy'])->name('settings.destroy');
 });
 
 Route::fallback(function () {

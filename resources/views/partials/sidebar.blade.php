@@ -14,7 +14,8 @@
             </li>
 
             <li class="nav-item">
-                <a href="{{ route('berita.index') }}" class="nav-link {{ request()->routeIs('berita.*') ? 'active' : '' }}">
+                <a href="{{ route('berita.index') }}"
+                    class="nav-link {{ request()->routeIs('berita.*') ? 'active' : '' }}">
                     <i class="far fa-newspaper"></i>
                     <span>Berita</span>
                 </a>
@@ -28,7 +29,8 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link setting">
+                <a href="{{ route('settings.index') }}"
+                    class="nav-link {{ request()->routeIs('settings.*') ? 'active' : '' }}">
                     <i class="fas fa-cog"></i>
                     <span>Pengaturan</span>
                 </a>
@@ -39,10 +41,24 @@
     <div class="d-flex flex-column">
         <div class="user-card mt-5">
             @auth('admin')
-                <div class="avatar">{{ strtoupper(substr(auth('admin')->user()->nama_lengkap, 0, 1)) }}</div>
+                @php
+                    $admin = auth('admin')->user();
+                    $avatarInitial = strtoupper(substr($admin->nama_lengkap, 0, 1));
+                    $avatarImage = $admin->gambar
+                        ? asset('images/profiles/' . $admin->gambar)
+                        : asset('images/default-img.png');
+                @endphp
+
+                <div class="avatar position-relative">
+                    @if ($admin->gambar)
+                        <img src="{{ $avatarImage }}" alt="{{ $admin->nama_lengkap }}" class="rounded-circle w-100 h-100">
+                    @else
+                        <span>{{ $avatarInitial }}</span>
+                    @endif
+                </div>
                 <div class="info">
-                    <div class="name">{{ auth('admin')->user()->nama_lengkap }}</div>
-                    <div class="email">{{ auth('admin')->user()->email }}</div>
+                    <div class="name">{{ $admin->nama_lengkap }}</div>
+                    <div class="email">{{ $admin->email }}</div>
                 </div>
             @else
                 <div class="avatar">A</div>
@@ -56,7 +72,8 @@
         <div class="logout mb-3">
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <button type="submit" class="btn btn-link gap-3 text-decoration-none p-0 d-flex justify-content-start align-items-center">
+                <button type="submit"
+                    class="btn btn-link gap-3 text-decoration-none p-0 d-flex justify-content-start align-items-center w-100">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>LOGOUT</span>
                 </button>
