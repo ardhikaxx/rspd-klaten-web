@@ -7,7 +7,7 @@
     <title>Radio Siaran Pemerintah Daerah Klaten</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
+
     <style>
         :root {
             --primary-bg: #0d121e;
@@ -911,11 +911,11 @@
             body {
                 padding-top: 154px;
             }
-            
+
             .mobile-menu-btn {
                 display: block;
             }
-            
+
             .custom-nav .nav {
                 display: none;
                 flex-direction: column;
@@ -927,163 +927,394 @@
                 border-bottom: 1px solid var(--border);
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
             }
-            
+
             .custom-nav .nav.show {
                 display: flex;
             }
-            
+
             .custom-nav .nav-item {
                 width: 100%;
             }
-            
+
             .custom-nav .nav-link {
                 padding: 12px 20px;
                 border-bottom: 1px solid var(--border);
             }
-            
+
             .custom-nav .nav-link:last-child {
                 border-bottom: none;
             }
-            
+
             .nav-container {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 position: relative;
             }
-            
+
             .custom-nav .nav {
                 flex-wrap: nowrap;
             }
         }
-        
+
         @media (max-width: 768px) {
             .custom-nav .nav-link {
                 padding: 8px 10px;
                 font-size: 0.9rem;
             }
-            
+
             .player-image {
                 height: 200px;
             }
-            
+
             .section-header h2 {
                 font-size: 1.5rem;
             }
-            
+
             .footer-bottom {
                 flex-direction: column;
                 gap: 10px;
                 text-align: center;
             }
-            
+
             .search-input {
                 margin-bottom: 10px;
             }
-            
+
             .radio-title h1 {
                 font-size: 1.2rem;
             }
-            
+
             .logo-img {
                 height: 50px;
             }
-            
+
             .admin-btn {
                 padding: 6px 15px;
                 font-size: 0.9rem;
             }
-            
+
             .hero-section {
                 margin-top: 10px;
             }
-            
+
             .player-controls {
                 flex-direction: column;
                 gap: 10px;
             }
-            
+
             .control-btn {
                 width: 100%;
             }
         }
-        
+
         @media (max-width: 576px) {
             body {
                 padding-top: 160px;
             }
-            
+
             .on-air-status {
                 flex-wrap: wrap;
                 justify-content: center;
             }
-            
+
             .live-info {
                 flex-wrap: wrap;
                 justify-content: center;
             }
-            
+
             .program-time {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 5px;
             }
-            
+
             .schedule-row {
                 flex-direction: column;
                 gap: 5px;
             }
-            
+
             .schedule-day {
                 width: 100%;
             }
-            
+
             .sticky-header {
                 position: fixed;
             }
-            
+
             .radio-title h1 {
                 font-size: 1rem;
             }
-            
+
             .radio-title p {
                 font-size: 0.8rem;
             }
-            
+
             .search-input {
                 width: 100% !important;
             }
-            
+
             .main-header .d-flex {
                 flex-direction: column;
                 align-items: flex-start !important;
             }
-            
-            .main-header .d-flex > div {
+
+            .main-header .d-flex>div {
                 width: 100%;
                 margin-bottom: 10px;
             }
-            
-            .main-header .d-flex > div:last-child {
+
+            .main-header .d-flex>div:last-child {
                 margin-bottom: 0;
             }
         }
-        
+
         @media (max-width: 375px) {
             body {
                 padding-top: 165px;
             }
-            
+
             .radio-title h1 {
                 font-size: 0.9rem;
             }
-            
+
             .on-air-badge {
                 font-size: 0.7rem;
             }
-            
+
             .live-info span {
                 font-size: 0.8rem;
+            }
+        }
+
+        .contact-section-card {
+            background-color: var(--secondary-bg);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border);
+            height: auto;
+        }
+
+        .contact-section-card h3 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            color: var(--text-light);
+        }
+
+        .contact-section-card h3 i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .contact-detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 215, 0, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon i {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .contact-content {
+            flex: 1;
+        }
+
+        .contact-content strong {
+            color: var(--text-light);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .contact-content div {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .operational-hours {
+            margin-top: 10px;
+        }
+
+        .operational-hours div {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .operational-hours div:last-child {
+            border-bottom: none;
+        }
+
+        .operational-hours span {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .operational-hours .text-warning {
+            color: var(--accent) !important;
+            font-weight: 500;
+        }
+
+        .map-placeholder {
+            height: 180px;
+            background: linear-gradient(135deg, var(--gray) 25%, var(--secondary-bg) 25%, var(--secondary-bg) 50%, var(--gray) 50%, var(--gray) 75%, var(--secondary-bg) 75%, var(--secondary-bg) 100%);
+            background-size: 40px 40px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .map-placeholder i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+            z-index: 1;
+        }
+
+        .map-placeholder .map-text {
+            z-index: 1;
+            text-align: center;
+        }
+
+        .map-placeholder .map-text div:first-child {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .map-placeholder .map-text div:last-child {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .btn-outline-light {
+            border: 1px solid var(--text-light);
+            color: var(--text-light);
+            background-color: transparent;
+            border-radius: 6px;
+            padding: 10px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .btn-outline-light:hover {
+            background-color: var(--text-light);
+            color: var(--primary-bg);
+        }
+
+        .form-label {
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-label strong {
+            font-weight: 600;
+        }
+
+        .form-control,
+        .form-select {
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border);
+            color: var(--text-light);
+            border-radius: 6px;
+            padding: 10px 12px;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--accent);
+            background-color: var(--secondary-bg);
+            color: var(--text-light);
+            box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
+        }
+
+        .btn-warning {
+            background-color: var(--accent);
+            color: #000;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-warning:hover {
+            background-color: #e6c200;
+            color: #000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-section-card {
+                padding: 20px;
+            }
+
+            .contact-detail-item {
+                padding: 10px 0;
+            }
+
+            .contact-icon {
+                width: 36px;
+                height: 36px;
+            }
+
+            .map-placeholder {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-section-card {
+                padding: 15px;
+            }
+
+            .contact-section-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+
+            .operational-hours div {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
             }
         }
     </style>
@@ -1121,7 +1352,8 @@
                     <div class="d-flex flex-column flex-sm-row align-items-center justify-content-end w-100 w-md-auto">
                         <div class="position-relative mb-2 mb-sm-0 me-sm-2 w-100 w-sm-auto" style="min-width: 200px;">
                             <i class="fas fa-search search-icon"></i>
-                            <input type="text" class="form-control search-input" placeholder="Cari berita, program...">
+                            <input type="text" class="form-control search-input"
+                                placeholder="Cari berita, program...">
                         </div>
                         <button class="admin-btn">Admin</button>
                     </div>
@@ -1136,29 +1368,26 @@
                 </button>
                 <ul class="nav justify-content-start flex-wrap" id="mainNav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Program Siaran</a>
+                        <a class="nav-link" href="#program-siaran">Program Siaran</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Berita</a>
+                        <a class="nav-link" href="#berita">Berita</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Live Streaming</a>
+                        <a class="nav-link" href="#tentang">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tentang Kami</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Kontak</a>
+                        <a class="nav-link" href="#kontak">Kontak</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </div>
 
-    <section class="hero-section">
+    <section class="hero-section" id="home">
         <div class="custom-container">
             <div class="row g-4">
                 <div class="col-lg-8">
@@ -1220,12 +1449,13 @@
     <section class="section-header">
         <div class="custom-container">
             <h2>Radio Siaran Pemerintah Daerah <span style="color: var(--accent);">Klaten</span></h2>
-            <p>Menyajikan informasi terkini, program berkualitas, dan pelayanan publik untuk masyarakat Klaten. Dengarkan
+            <p>Menyajikan informasi terkini, program berkualitas, dan pelayanan publik untuk masyarakat Klaten.
+                Dengarkan
                 siaran langsung 24/7 di FM 107.5 MHz.</p>
         </div>
     </section>
 
-    <section class="mb-5">
+    <section class="mb-5" id="tentang">
         <div class="custom-container">
             <div class="row g-4">
                 <div class="col-lg-6">
@@ -1234,9 +1464,11 @@
                         <img src="https://via.placeholder.com/400x200" alt="Profil Radio" class="profile-img">
                         <div class="visi-misi">
                             <h4>Visi & Misi</h4>
-                            <p><strong>Visi:</strong> Menjadi media komunikasi publik terdepan dalam menyampaikan informasi
+                            <p><strong>Visi:</strong> Menjadi media komunikasi publik terdepan dalam menyampaikan
+                                informasi
                                 pemerintah dan memberdayakan masyarakat Klaten.</p>
-                            <p><strong>Misi:</strong> Menyediakan informasi akurat, transparan, dan bermanfaat bagi kemajuan daerah
+                            <p><strong>Misi:</strong> Menyediakan informasi akurat, transparan, dan bermanfaat bagi
+                                kemajuan daerah
                                 dan kesejahteraan masyarakat.</p>
                         </div>
                         <ul class="info-list">
@@ -1290,7 +1522,8 @@
                             </div>
                         </div>
                         <div class="emergency">
-                            <strong>Untuk keadaan darurat:</strong> Hubungi 112 atau datang langsung ke kantor kecamatan terdekat.
+                            <strong>Untuk keadaan darurat:</strong> Hubungi 112 atau datang langsung ke kantor kecamatan
+                            terdekat.
                         </div>
                     </div>
                 </div>
@@ -1298,7 +1531,7 @@
         </div>
     </section>
 
-    <section class="section-header">
+    <section class="section-header" id="program-siaran">
         <div class="custom-container">
             <h2>Program Siaran</h2>
             <p>Program unggulan yang siap melayani informasi terbaik untuk masyarakat Klaten</p>
@@ -1340,7 +1573,7 @@
                             <span>Host: Tim Redaksi</span>
                         </div>
                     </div>
-                    
+
                     <div class="schedule-table">
                         <h3><i class="far fa-calendar-alt"></i> Jadwal Mingguan</h3>
                         <div class="schedule-row">
@@ -1426,7 +1659,7 @@
         </div>
     </section>
 
-    <section class="section-header">
+    <section class="section-header" id="berita">
         <div class="custom-container">
             <h2>Berita & Artikel</h2>
             <p>Informasi terkini dari Pemerintah Kabupaten Klaten, budaya lokal, dan aktivitas masyarakat</p>
@@ -1441,7 +1674,7 @@
                 <button class="berita-tab">Musik</button>
                 <button class="berita-tab">Komunitas</button>
             </div>
-            
+
             <div class="row g-4 mt-3">
                 <div class="col-md-4">
                     <div class="berita-card">
@@ -1449,7 +1682,8 @@
                         <div class="berita-content">
                             <div class="berita-category">Ekonomi</div>
                             <div class="berita-title">Pemkab Klaten Luncurkan Program Digitalisasi UMKM</div>
-                            <div class="berita-desc">Program bantuan digitalisasi untuk meningkatkan daya saing UMKM di era digital
+                            <div class="berita-desc">Program bantuan digitalisasi untuk meningkatkan daya saing UMKM di
+                                era digital
                             </div>
                             <div class="berita-meta">
                                 <div><i class="far fa-calendar"></i> 15 Januari 2025</div>
@@ -1463,7 +1697,8 @@
                         <div class="berita-content">
                             <div class="berita-category">Infrastruktur</div>
                             <div class="berita-title">Pembangunan Jalan Penghubung Desa Selesai</div>
-                            <div class="berita-desc">Infrastruktur jalan sepanjang 5 km menghubungkan 3 desa di Kecamatan Bayat
+                            <div class="berita-desc">Infrastruktur jalan sepanjang 5 km menghubungkan 3 desa di
+                                Kecamatan Bayat
                             </div>
                             <div class="berita-meta">
                                 <div><i class="far fa-calendar"></i> 14 Januari 2025</div>
@@ -1477,7 +1712,8 @@
                         <div class="berita-content">
                             <div class="berita-category">Kesehatan</div>
                             <div class="berita-title">Vaksinasi COVID-19 Dosis Booster Tahap 2</div>
-                            <div class="berita-desc">Pemkab Klaten menggelar vaksinasi booster untuk masyarakat umur 18+</div>
+                            <div class="berita-desc">Pemkab Klaten menggelar vaksinasi booster untuk masyarakat umur
+                                18+</div>
                             <div class="berita-meta">
                                 <div><i class="far fa-calendar"></i> 13 Januari 2025</div>
                                 <div><i class="far fa-eye"></i> 367</div>
@@ -1486,14 +1722,166 @@
                     </div>
                 </div>
             </div>
-            
+
             <a href="#" class="view-more">Lihat Berita Lainnya</a>
-            
+        </div>
+    </section>
+
+    <section id="kontak" class="mb-5">
+        <div class="custom-container">
+            <div class="section-header text-center mb-4">
+                <h2>Hubungi Kami</h2>
+                <p>Sampaikan masukan, saran, atau pertanyaan Anda. Kami siap melayani dan mendengarkan aspirasi
+                    masyarakat Klaten.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="contact-section-card">
+                        <h3 class="mb-4"><i class="fas fa-envelope me-2"></i> Formulir Masukan Warga</h3>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="namaLengkap" class="form-label"><strong>Nama Lengkap
+                                            *</strong></label>
+                                    <input type="text" class="form-control" id="namaLengkap"
+                                        placeholder="Masukkan nama lengkap" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="nomorTelepon" class="form-label"><strong>Nomor
+                                            Telepon</strong></label>
+                                    <input type="tel" class="form-control" id="nomorTelepon"
+                                        placeholder="08xx xxxx xxxx">
+                                </div>
+                                <div class="col-12">
+                                    <label for="subjek" class="form-label"><strong>Subjek *</strong></label>
+                                    <input type="text" class="form-control" id="subjek"
+                                        placeholder="Ringkasan topik yang ingin disampaikan" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="pesan" class="form-label"><strong>Pesan *</strong></label>
+                                    <textarea class="form-control" id="pesan" rows="4"
+                                        placeholder="Tuliskan pesan, saran, atau keluhan Anda di sini..." required></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label"><strong>Email</strong></label>
+                                    <input type="email" class="form-control" id="email"
+                                        placeholder="nama@email.com">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="kategori" class="form-label"><strong>Kategori</strong></label>
+                                    <select class="form-select" id="kategori">
+                                        <option selected>Pilih kategori</option>
+                                        <option value="1">Pengaduan</option>
+                                        <option value="2">Saran</option>
+                                        <option value="3">Permintaan Informasi</option>
+                                        <option value="4">Kerjasama</option>
+                                        <option value="5">Lainnya</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-4">
+                                <button type="submit"
+                                    class="btn btn-warning d-flex align-items-center px-4 py-2 fw-bold">
+                                    <i class="fas fa-paper-plane me-2"></i> Kirim Pesan
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Informasi Kontak & Jam Operasional -->
+                <div class="col-lg-4">
+                    <!-- Informasi Kontak -->
+                    <div class="contact-section-card mb-4">
+                        <h3 class="mb-4"><i class="fas fa-phone me-2"></i> Informasi Kontak</h3>
+                        <div class="contact-detail-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-content">
+                                <strong>Telepon</strong>
+                                <div>(0272) 321888</div>
+                                <div>(0272) 321999</div>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-content">
+                                <strong>WhatsApp</strong>
+                                <div>+62 812-3456-7890</div>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-content">
+                                <strong>Email</strong>
+                                <div>radio@klatenkab.go.id</div>
+                                <div>info@radiopemkabklaten.id</div>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-content">
+                                <strong>Alamat</strong>
+                                <div>Jl. Pemuda No. 1</div>
+                                <div>Klaten Tengah, Klaten 57411</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jam Operasional -->
+                    <div class="contact-section-card mb-4">
+                        <h3 class="mb-4"><i class="far fa-clock me-2"></i> Jam Operasional</h3>
+                        <div class="operational-hours">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Senin - Jumat</span>
+                                <span class="text-warning">06:00 - 24:00 WIB</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Sabtu - Minggu</span>
+                                <span class="text-warning">06:00 - 24:00 WIB</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Siaran Langsung</span>
+                                <span class="text-warning">24/7</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Layanan Telepon</span>
+                                <span class="text-warning">08:00 - 16:00 WIB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lokasi Studio -->
+                    <div class="contact-section-card">
+                        <h3 class="mb-4"><i class="fas fa-map-marked-alt me-2"></i> Lokasi Studio</h3>
+                        <div class="map-placeholder mb-3">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="map-text">
+                                <div>Google Maps</div>
+                                <div>Jl. Pemuda No. 1, Klaten</div>
+                            </div>
+                        </div>
+                        <a href="#"
+                            class="btn btn-outline-light w-100 d-flex align-items-center justify-content-center py-2">
+                            <i class="fas fa-external-link-alt me-2"></i> Buka di Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="row mt-4">
                 <div class="col-12">
                     <div class="note-banner">
-                        <strong>Catatan:</strong> Untuk pengaduan yang bersifat mendesak atau darurat, silakan hubungi langsung via
-                        telepon atau datang ke kantor kami. Pesan melalui formulir akan direspon dalam 1x24 jam pada hari kerja.
+                        <strong>Catatan:</strong> Untuk pengaduan yang bersifat mendesak atau darurat, silakan hubungi
+                        langsung via
+                        telepon atau datang ke kantor kami. Pesan melalui formulir akan direspon dalam 1x24 jam pada
+                        hari kerja.
                     </div>
                 </div>
             </div>
@@ -1573,18 +1961,18 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const tabs = document.querySelectorAll('.berita-tab');
-            
+
             tabs.forEach(tab => {
                 tab.addEventListener('click', function() {
                     tabs.forEach(t => t.classList.remove('active'));
                     this.classList.add('active');
                 });
             });
-            
+
             const playButton = document.querySelector('.play-button');
             if (playButton) {
                 playButton.addEventListener('click', function() {
@@ -1598,14 +1986,14 @@
                     }
                 });
             }
-            
+
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mainNav = document.getElementById('mainNav');
-            
+
             if (mobileMenuBtn && mainNav) {
                 mobileMenuBtn.addEventListener('click', function() {
                     mainNav.classList.toggle('show');
-                    
+
                     const icon = this.querySelector('i');
                     if (icon.classList.contains('fa-bars')) {
                         icon.classList.remove('fa-bars');
@@ -1615,7 +2003,7 @@
                         icon.classList.add('fa-bars');
                     }
                 });
-                
+
                 document.addEventListener('click', function(event) {
                     if (!event.target.closest('.nav-container') && mainNav.classList.contains('show')) {
                         mainNav.classList.remove('show');
@@ -1624,7 +2012,7 @@
                         icon.classList.add('fa-bars');
                     }
                 });
-                
+
                 const navLinks = mainNav.querySelectorAll('.nav-link');
                 navLinks.forEach(link => {
                     link.addEventListener('click', function() {
@@ -1635,7 +2023,7 @@
                     });
                 });
             }
-            
+
             function adjustBodyPadding() {
                 const stickyHeader = document.querySelector('.sticky-header');
                 if (stickyHeader) {
@@ -1643,7 +2031,7 @@
                     document.body.style.paddingTop = headerHeight + 'px';
                 }
             }
-            
+
             window.addEventListener('load', adjustBodyPadding);
             window.addEventListener('resize', adjustBodyPadding);
             adjustBodyPadding();
