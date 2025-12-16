@@ -1326,40 +1326,6 @@
             width: 100%;
             height: 100%;
             border: none;
-            filter: grayscale(20%) contrast(1.1);
-        }
-
-        .map-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(13, 18, 30, 0.3), rgba(13, 18, 30, 0.1));
-            pointer-events: none;
-            border-radius: 8px;
-        }
-
-        .map-info {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            background-color: rgba(13, 18, 30, 0.85);
-            padding: 8px 12px;
-            border-radius: 6px;
-            border-left: 3px solid var(--accent);
-            z-index: 2;
-        }
-
-        .map-info div:first-child {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            font-weight: 600;
-        }
-
-        .map-info div:last-child {
-            font-size: 0.8rem;
-            color: var(--text-muted);
         }
 
         .btn-outline-light {
@@ -1994,13 +1960,8 @@
                                 loading="lazy" 
                                 referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
-                            <div class="map-overlay"></div>
-                            <div class="map-info">
-                                <div>RSPD Klaten</div>
-                                <div>Jl. Pemuda Utara No.140</div>
-                            </div>
                         </div>
-                        <a href="https://www.google.com/maps/place/Jl.+Pemuda+Utara+No.140,+Tegalputihan,+Bareng+Lor,+Kec.+Klaten+Utara,+Kabupaten+Klaten,+Jawa+Tengah+57414/@-7.6981967,110.6014613,17z/data=!3m1!4b1!4m6!3m5!1s0x2e7a43f9c0ef424d:0x439fcb157f7884f0!8m2!3d-7.6981967!4d110.6040362!16s%2Fg%2F11t3y_nszg?entry=ttu"
+                        <a href="https://maps.app.goo.gl/oQZ6BHnb2EH91mC8A"
                             target="_blank" 
                             class="btn btn-outline-light w-100 d-flex align-items-center justify-content-center py-2">
                             <i class="fas fa-external-link-alt me-2"></i> Buka di Google Maps
