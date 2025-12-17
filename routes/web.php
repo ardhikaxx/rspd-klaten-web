@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ManajemenBeritaController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\ManajemenSiaranController;
 
 Route::get('/', function () {
     return view('index');
@@ -24,9 +25,16 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('/admin/berita/{id}', [ManajemenBeritaController::class, 'update']);
     Route::delete('/admin/berita/{id}', [ManajemenBeritaController::class, 'destroy']);
 
-    Route::get('/admin/siaran', function () {
-        return view('admins.manajemen-siaran.index');
-    })->name('siaran.index');
+    // Siaran Routes
+    Route::get('/admin/siaran', [ManajemenSiaranController::class, 'index'])->name('siaran.index');
+    Route::post('/admin/siaran/program', [ManajemenSiaranController::class, 'storeProgram'])->name('siaran.store-program');
+    Route::get('/admin/siaran/program/{id}', [ManajemenSiaranController::class, 'showProgram']);
+    Route::post('/admin/siaran/program/{id}', [ManajemenSiaranController::class, 'updateProgram']);
+    Route::delete('/admin/siaran/program/{id}', [ManajemenSiaranController::class, 'destroyProgram']);
+    Route::post('/admin/siaran/jadwal', [ManajemenSiaranController::class, 'storeJadwal'])->name('siaran.store-jadwal');
+    Route::get('/admin/siaran/jadwal/{id}', [ManajemenSiaranController::class, 'showJadwal']);
+    Route::post('/admin/siaran/jadwal/{id}', [ManajemenSiaranController::class, 'updateJadwal']);
+    Route::delete('/admin/siaran/jadwal/{id}', [ManajemenSiaranController::class, 'destroyJadwal']);
 
     // Settings Routes
     Route::get('/admin/settings', [SettingsController::class, 'index'])->name('settings.index');

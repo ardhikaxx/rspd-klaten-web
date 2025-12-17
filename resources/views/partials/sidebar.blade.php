@@ -22,7 +22,8 @@
             </li>
 
             <li class="nav-item">
-                <a href="{{ route('siaran.index') }}" class="nav-link">
+                <a href="{{ route('siaran.index') }}"
+                    class="nav-link {{ request()->routeIs('siaran.*') ? 'active' : '' }}">
                     <i class="fas fa-broadcast-tower"></i>
                     <span>Program Siaran</span>
                 </a>
