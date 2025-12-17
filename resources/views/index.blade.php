@@ -448,7 +448,7 @@
             border-radius: 8px;
             padding: 15px;
             border: 1px solid var(--border);
-            height: 100%;
+            height: auto;
         }
 
         .next-program h3 {
@@ -1563,15 +1563,14 @@
                         @else
                             <div class="program-card">
                                 <div class="station">RSPD</div>
-                                <h4>POP</h4>
-                                <p>MINGGU 09.00-10.00</p>
+                                <h4>Tidak Ada Program</h4>
+                                <p>Belum ada program yang dijadwalkan</p>
                                 <div class="program-schedule">
-                                    <span>SENIN - JUMAT</span>
-                                    <span>SAPA KASEP KLATEN</span>
+                                    <span>-</span>
+                                    <span>-</span>
                                 </div>
                                 <div class="dots">
                                     <div class="dot active"></div>
-                                    <div class="dot"></div>
                                     <div class="dot"></div>
                                 </div>
                             </div>
@@ -1584,9 +1583,7 @@
     <section class="section-header">
         <div class="custom-container">
             <h2>Radio Siaran Pemerintah Daerah <span style="color: var(--accent);">Klaten</span></h2>
-            <p>Menyajikan informasi terkini, program berkualitas, dan pelayanan publik untuk masyarakat Klaten.
-                Dengarkan
-                siaran langsung 24/7 di FM 107.5 MHz.</p>
+            <p>Menyajikan informasi terkini, program berkualitas, dan pelayanan publik untuk masyarakat Klaten. Dengarkan siaran langsung 24/7 di FM 107.5 MHz.</p>
         </div>
     </section>
     <section class="mb-5" id="tentang">
