@@ -32,11 +32,11 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/siaran', [ManajemenSiaranController::class, 'index'])->name('siaran.index');
     Route::post('/admin/siaran/program', [ManajemenSiaranController::class, 'storeProgram'])->name('siaran.store-program');
     Route::get('/admin/siaran/program/{id}', [ManajemenSiaranController::class, 'showProgram']);
-    Route::post('/admin/siaran/program/{id}', [ManajemenSiaranController::class, 'updateProgram']);
+    Route::put('/admin/siaran/program/{id}', [ManajemenSiaranController::class, 'updateProgram']);
     Route::delete('/admin/siaran/program/{id}', [ManajemenSiaranController::class, 'destroyProgram']);
     Route::post('/admin/siaran/jadwal', [ManajemenSiaranController::class, 'storeJadwal'])->name('siaran.store-jadwal');
     Route::get('/admin/siaran/jadwal/{id}', [ManajemenSiaranController::class, 'showJadwal']);
-    Route::post('/admin/siaran/jadwal/{id}', [ManajemenSiaranController::class, 'updateJadwal']);
+    Route::put('/admin/siaran/jadwal/{id}', [ManajemenSiaranController::class, 'updateJadwal']);
     Route::delete('/admin/siaran/jadwal/{id}', [ManajemenSiaranController::class, 'destroyJadwal']);
 
     // Settings Routes

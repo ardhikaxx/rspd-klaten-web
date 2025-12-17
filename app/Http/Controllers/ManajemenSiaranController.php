@@ -12,7 +12,7 @@ class ManajemenSiaranController extends Controller
     {
         $siarans = Siaran::orderByTime()->get();
         $jadwals = Jadwal::orderByTime()->get();
-        
+
         return view('admins.manajemen-siaran.index', compact('siarans', 'jadwals'));
     }
 
@@ -40,7 +40,7 @@ class ManajemenSiaranController extends Controller
 
     public function updateProgram(Request $request, $id)
     {
-        $request->validate([
+        $validated = $request->validate([
             'nama_program' => 'required|string|max:255',
             'kategori' => 'required|string|max:100',
             'deskripsi' => 'required|string',
@@ -48,10 +48,14 @@ class ManajemenSiaranController extends Controller
             'presenter' => 'required|string|max:100'
         ]);
 
-        $siaran = Siaran::findOrFail($id);
-        $siaran->update($request->all());
+        try {
+            $siaran = Siaran::findOrFail($id);
+            $siaran->update($validated);
 
-        return response()->json(['success' => 'Program siaran berhasil diperbarui!']);
+            return response()->json(['success' => 'Program siaran berhasil diperbarui!']);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Gagal memperbarui program: ' . $e->getMessage()], 500);
+        }
     }
 
     public function destroyProgram($id)
@@ -84,16 +88,20 @@ class ManajemenSiaranController extends Controller
 
     public function updateJadwal(Request $request, $id)
     {
-        $request->validate([
+        $validated = $request->validate([
             'nama_jadwal' => 'required|string|max:255',
             'waktu_jadwal' => 'required|date_format:H:i',
             'presenter' => 'required|string|max:100'
         ]);
 
-        $jadwal = Jadwal::findOrFail($id);
-        $jadwal->update($request->all());
+        try {
+            $jadwal = Jadwal::findOrFail($id);
+            $jadwal->update($validated);
 
-        return response()->json(['success' => 'Jadwal berhasil diperbarui!']);
+            return response()->json(['success' => 'Jadwal berhasil diperbarui!']);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Gagal memperbarui jadwal: ' . $e->getMessage()], 500);
+        }
     }
 
     public function destroyJadwal($id)

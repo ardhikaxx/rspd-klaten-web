@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('title', 'Manajemen Program Siaran - RSPD Klaten Admin Panel')
-
 @section('content')
     <div class="siaran-management p-4">
         <div class="d-flex justify-content-between align-items-start mb-4">
@@ -30,7 +28,6 @@
                 <span class="h5 mb-0">Daftar Program Siaran</span>
                 <span class="badge bg-dark ms-3">{{ $siarans->count() }} Program</span>
             </div>
-
             @if ($siarans->count() > 0)
                 <div class="program-list" id="programList">
                     @foreach ($siarans as $siaran)
@@ -43,11 +40,9 @@
                                         <span class="badge bg-primary text-white">{{ $siaran->kategori }}</span>
                                     </div>
                                 </div>
-
                                 <p class="card-text">
                                     {{ Str::limit($siaran->deskripsi, 150) }}
                                 </p>
-
                                 <div class="program-meta d-flex align-items-center mt-3">
                                     <span class="me-3">
                                         <i class="far fa-clock me-1 text-warning"></i>{{ $siaran->waktu_siaran }}
@@ -56,7 +51,6 @@
                                         <i class="fas fa-user me-1 text-warning"></i>{{ $siaran->presenter }}
                                     </span>
                                 </div>
-
                                 <div class="action-buttons mt-3 d-flex gap-2">
                                     <button type="button" class="btn btn-outline-light btn-sm edit-program"
                                         data-id="{{ $siaran->id }}">
@@ -96,7 +90,6 @@
                 <span class="h5 mb-0">Jadwal Siaran Harian</span>
                 <span class="badge bg-dark ms-3">{{ $jadwals->count() }} Jadwal</span>
             </div>
-
             @if ($jadwals->count() > 0)
                 <div class="jadwal-container" id="jadwalList">
                     @foreach ($jadwals as $jadwal)
@@ -150,20 +143,8 @@
         </div>
 
         <!-- Info Filter Kosong -->
-        <div class="card border-warning d-none" id="noResultsCard">
-            <div class="card-body text-center py-4">
-                <div class="mb-3">
-                    <i class="fas fa-search" style="font-size: 3rem; color: #f59e0b;"></i>
-                </div>
-                <h4 class="text-warning mb-3">Tidak Ditemukan</h4>
-                <p class="text-white mb-3">
-                    Tidak ada program atau jadwal yang sesuai dengan filter pencarian Anda.
-                </p>
-                <button type="button" class="btn btn-outline-warning me-2" id="resetFilterBtn">
-                    <i class="fas fa-times me-1"></i>Reset Filter
-                </button>
-            </div>
-        </div>
+        <!-- Bagian ini dihapus karena filter/search dihapus -->
+
     </div>
 
     <!-- Modal Tambah Program -->
@@ -183,7 +164,6 @@
                             <input type="text" class="form-control bg-dark text-white" id="nama_program"
                                 name="nama_program" required>
                         </div>
-
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="kategori" class="form-label">Kategori</label>
@@ -203,14 +183,12 @@
                                     name="presenter" required>
                             </div>
                         </div>
-
                         <div class="mb-3">
                             <label for="waktu_siaran" class="form-label">Waktu Siaran</label>
                             <input type="text" class="form-control bg-dark text-white" id="waktu_siaran"
                                 name="waktu_siaran" placeholder="Contoh: 06:00 - 07:00" required>
                             <small class="text-white">Contoh: 06:00 - 07:00</small>
                         </div>
-
                         <div class="mb-3">
                             <label for="deskripsi" class="form-label">Deskripsi Program</label>
                             <textarea class="form-control bg-dark text-white" id="deskripsi" name="deskripsi" rows="3" required></textarea>
@@ -244,7 +222,6 @@
                             <input type="text" class="form-control bg-dark text-white" id="edit_nama_program"
                                 name="nama_program" required>
                         </div>
-
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="edit_kategori" class="form-label">Kategori</label>
@@ -265,14 +242,12 @@
                                     name="presenter" required>
                             </div>
                         </div>
-
                         <div class="mb-3">
                             <label for="edit_waktu_siaran" class="form-label">Waktu Siaran</label>
                             <input type="text" class="form-control bg-dark text-white" id="edit_waktu_siaran"
                                 name="waktu_siaran" required>
                             <small class="text-white">Contoh: 06:00 - 07:00</small>
                         </div>
-
                         <div class="mb-3">
                             <label for="edit_deskripsi" class="form-label">Deskripsi Program</label>
                             <textarea class="form-control bg-dark text-white" id="edit_deskripsi" name="deskripsi" rows="3" required></textarea>
@@ -304,7 +279,6 @@
                             <input type="text" class="form-control bg-dark text-white" id="nama_jadwal"
                                 name="nama_jadwal" required>
                         </div>
-
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="waktu_jadwal" class="form-label">Waktu Jadwal</label>
@@ -346,7 +320,6 @@
                             <input type="text" class="form-control bg-dark text-white" id="edit_nama_jadwal"
                                 name="nama_jadwal" required>
                         </div>
-
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="edit_waktu_jadwal" class="form-label">Waktu Jadwal</label>
@@ -414,19 +387,12 @@
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/manajemen-siaran.css') }}">
-    
     <style>
-        #noResultsCard {
-            display: none;
-            animation: fadeIn 0.3s ease-in;
-        }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
                 transform: translateY(-10px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -493,90 +459,17 @@
             // Tab Navigation
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
-                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove(
-                        'active'));
-                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove(
-                        'active'));
+                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
                     btn.classList.add('active');
                     document.getElementById(btn.dataset.tab + 'Tab').classList.add('active');
                 });
             });
 
-            // Filter dan Search
-            const searchInput = document.getElementById('searchInput');
-            const categoryFilter = document.getElementById('categoryFilter');
-            const programCards = document.querySelectorAll('.program-card');
-            const jadwalItems = document.querySelectorAll('.jadwal-item');
-            const noResultsCard = document.getElementById('noResultsCard');
-            const resetFilterBtn = document.getElementById('resetFilterBtn');
-
-            function filterContent() {
-                const searchTerm = searchInput.value.toLowerCase().trim();
-                const selectedCategory = categoryFilter.value;
-                let visiblePrograms = 0;
-                let visibleJadwals = 0;
-
-                // Filter Program Siaran
-                programCards.forEach(card => {
-                    const searchText = card.getAttribute('data-search') || '';
-                    const category = card.getAttribute('data-category');
-
-                    const matchesSearch = searchTerm === '' || searchText.includes(searchTerm);
-                    const matchesCategory = !selectedCategory || category === selectedCategory;
-
-                    if (matchesSearch && matchesCategory) {
-                        card.classList.remove('hidden');
-                        visiblePrograms++;
-                    } else {
-                        card.classList.add('hidden');
-                    }
-                });
-
-                // Filter Jadwal
-                jadwalItems.forEach(item => {
-                    const searchText = item.getAttribute('data-search') || '';
-
-                    const matchesSearch = searchTerm === '' || searchText.includes(searchTerm);
-
-                    if (matchesSearch) {
-                        item.classList.remove('hidden');
-                        visibleJadwals++;
-                    } else {
-                        item.classList.add('hidden');
-                    }
-                });
-
-                // Show/hide no results card
-                const activeTab = document.querySelector('.tab-content.active').id;
-                if (activeTab === 'programTab' && visiblePrograms === 0 &&
-                    (searchTerm !== '' || selectedCategory !== '')) {
-                    noResultsCard.classList.remove('d-none');
-                } else if (activeTab === 'jadwalTab' && visibleJadwals === 0 &&
-                    (searchTerm !== '')) {
-                    noResultsCard.classList.remove('d-none');
-                } else {
-                    noResultsCard.classList.add('d-none');
-                }
-            }
-
-            searchInput.addEventListener('input', filterContent);
-            categoryFilter.addEventListener('change', filterContent);
-
-            // Reset filter button
-            if (resetFilterBtn) {
-                resetFilterBtn.addEventListener('click', function() {
-                    searchInput.value = '';
-                    categoryFilter.value = '';
-                    filterContent();
-                });
-            }
-
             // Form Tambah Program
             document.getElementById('formTambahProgram').addEventListener('submit', function(e) {
                 e.preventDefault();
-
                 const formData = new FormData(this);
-
                 fetch("{{ route('siaran.store-program') }}", {
                         method: 'POST',
                         body: formData,
@@ -601,22 +494,21 @@
             document.querySelectorAll('.edit-program').forEach(button => {
                 button.addEventListener('click', function() {
                     const id = this.getAttribute('data-id');
-
                     fetch(`/admin/siaran/program/${id}`)
                         .then(response => response.json())
                         .then(data => {
                             document.getElementById('edit_program_id').value = data.id;
-                            document.getElementById('edit_nama_program').value = data
-                                .nama_program;
+                            document.getElementById('edit_nama_program').value = data.nama_program;
                             document.getElementById('edit_kategori').value = data.kategori;
                             document.getElementById('edit_presenter').value = data.presenter;
-                            document.getElementById('edit_waktu_siaran').value = data
-                                .waktu_siaran;
+                            document.getElementById('edit_waktu_siaran').value = data.waktu_siaran;
                             document.getElementById('edit_deskripsi').value = data.deskripsi;
-
-                            const modal = new bootstrap.Modal(document.getElementById(
-                                'editProgramModal'));
+                            const modal = new bootstrap.Modal(document.getElementById('editProgramModal'));
                             modal.show();
+                        })
+                        .catch(error => {
+                            console.error('Error fetching program details:', error);
+                            alert('Gagal memuat data program untuk diedit.');
                         });
                 });
             });
@@ -624,23 +516,29 @@
             // Form Edit Program
             document.getElementById('formEditProgram').addEventListener('submit', function(e) {
                 e.preventDefault();
-
                 const id = document.getElementById('edit_program_id').value;
                 const formData = new FormData(this);
-
+                formData.append('_method', 'PUT');
                 fetch(`/admin/siaran/program/${id}`, {
                         method: 'POST',
                         body: formData,
                         headers: {
                             'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                            'X-HTTP-Method-Override': 'PUT'
+                            'Accept': 'application/json'
                         }
                     })
-                    .then(response => response.json())
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
                     .then(data => {
                         if (data.success) {
                             alert(data.success);
                             location.reload();
+                        } else if (data.errors) {
+                            alert('Terjadi kesalahan: ' + JSON.stringify(data.errors));
                         }
                     })
                     .catch(error => {
@@ -656,7 +554,6 @@
                     programToDelete = this.getAttribute('data-id');
                     const nama = this.getAttribute('data-nama');
                     document.getElementById('hapusProgramNama').textContent = nama;
-
                     const modal = new bootstrap.Modal(document.getElementById('hapusProgramModal'));
                     modal.show();
                 });
@@ -665,7 +562,6 @@
             // Konfirmasi Hapus Program
             document.getElementById('confirmHapusProgram').addEventListener('click', function() {
                 if (!programToDelete) return;
-
                 fetch(`/admin/siaran/program/${programToDelete}`, {
                         method: 'DELETE',
                         headers: {
@@ -689,9 +585,7 @@
             // Form Tambah Jadwal
             document.getElementById('formTambahJadwal').addEventListener('submit', function(e) {
                 e.preventDefault();
-
                 const formData = new FormData(this);
-
                 fetch("{{ route('siaran.store-jadwal') }}", {
                         method: 'POST',
                         body: formData,
@@ -716,21 +610,19 @@
             document.querySelectorAll('.edit-jadwal').forEach(button => {
                 button.addEventListener('click', function() {
                     const id = this.getAttribute('data-id');
-
                     fetch(`/admin/siaran/jadwal/${id}`)
                         .then(response => response.json())
                         .then(data => {
                             document.getElementById('edit_jadwal_id').value = data.id;
-                            document.getElementById('edit_nama_jadwal').value = data
-                                .nama_jadwal;
-                            document.getElementById('edit_waktu_jadwal').value = data
-                                .waktu_jadwal;
-                            document.getElementById('edit_presenter_jadwal').value = data
-                                .presenter;
-
-                            const modal = new bootstrap.Modal(document.getElementById(
-                                'editJadwalModal'));
+                            document.getElementById('edit_nama_jadwal').value = data.nama_jadwal;
+                            document.getElementById('edit_waktu_jadwal').value = data.waktu_jadwal;
+                            document.getElementById('edit_presenter_jadwal').value = data.presenter;
+                            const modal = new bootstrap.Modal(document.getElementById('editJadwalModal'));
                             modal.show();
+                        })
+                        .catch(error => {
+                            console.error('Error fetching jadwal details:', error);
+                            alert('Gagal memuat data jadwal untuk diedit.');
                         });
                 });
             });
@@ -738,23 +630,30 @@
             // Form Edit Jadwal
             document.getElementById('formEditJadwal').addEventListener('submit', function(e) {
                 e.preventDefault();
-
                 const id = document.getElementById('edit_jadwal_id').value;
                 const formData = new FormData(this);
+                formData.append('_method', 'PUT');
 
                 fetch(`/admin/siaran/jadwal/${id}`, {
                         method: 'POST',
                         body: formData,
                         headers: {
                             'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                            'X-HTTP-Method-Override': 'PUT'
+                            'Accept': 'application/json'
                         }
                     })
-                    .then(response => response.json())
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
                     .then(data => {
                         if (data.success) {
                             alert(data.success);
                             location.reload();
+                        } else if (data.errors) {
+                            alert('Terjadi kesalahan: ' + JSON.stringify(data.errors));
                         }
                     })
                     .catch(error => {
@@ -770,7 +669,6 @@
                     jadwalToDelete = this.getAttribute('data-id');
                     const nama = this.getAttribute('data-nama');
                     document.getElementById('hapusJadwalNama').textContent = nama;
-
                     const modal = new bootstrap.Modal(document.getElementById('hapusJadwalModal'));
                     modal.show();
                 });
@@ -779,7 +677,6 @@
             // Konfirmasi Hapus Jadwal
             document.getElementById('confirmHapusJadwal').addEventListener('click', function() {
                 if (!jadwalToDelete) return;
-
                 fetch(`/admin/siaran/jadwal/${jadwalToDelete}`, {
                         method: 'DELETE',
                         headers: {
