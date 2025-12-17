@@ -7,7 +7,7 @@
     <nav class="menu-section flex-wrap">
         <ul class="nav flex-column gap-1 px-3">
             <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ route('dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                     <i class="fas fa-th-large"></i>
                     <span>Dashboard</span>
                 </a>

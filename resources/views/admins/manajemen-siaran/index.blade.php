@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Manajemen Program Siaran')
+@section('title', 'Manajemen Program Siaran - RSPD Klaten Admin Panel')
 
 @section('content')
     <div class="siaran-management p-4">

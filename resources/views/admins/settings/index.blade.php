@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Pengaturan')
+@section('title', 'Pengaturan - RSPD Klaten Admin Panel')
 
 @section('content')
     <div class="settings-management p-4">

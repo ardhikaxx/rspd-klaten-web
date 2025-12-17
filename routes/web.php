@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ManajemenBeritaController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ManajemenSiaranController;
@@ -15,7 +16,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::middleware('auth:admin')->group(function () {
-    Route::get('/admin/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
+    // Dashboard Routes
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/admin/dashboard/chart-data', [DashboardController::class, 'getChartData'])->name('dashboard.chart-data');
 
     // Berita Routes
     Route::get('/admin/berita', [ManajemenBeritaController::class, 'index'])->name('berita.index');
