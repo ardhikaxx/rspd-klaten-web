@@ -69,7 +69,7 @@
                                     data-id="{{ $item->id }}">
                                     <i class="far fa-edit me-1"></i>Edit
                                 </button>
-                                <button type="button" class="btn btn-outline-danger btn-sm hapus-berita"
+                                <button type="button" class="btn btn-danger text-white btn-sm hapus-berita"
                                     data-id="{{ $item->id }}" data-judul="{{ $item->judul }}">
                                     <i class="far fa-trash-alt me-1"></i>Hapus
                                 </button>

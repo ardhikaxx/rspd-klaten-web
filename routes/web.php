@@ -16,14 +16,18 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
-    
+
     // Berita Routes
     Route::get('/admin/berita', [ManajemenBeritaController::class, 'index'])->name('berita.index');
     Route::post('/admin/berita', [ManajemenBeritaController::class, 'store'])->name('berita.store');
     Route::get('/admin/berita/{id}', [ManajemenBeritaController::class, 'show']);
     Route::post('/admin/berita/{id}', [ManajemenBeritaController::class, 'update']);
     Route::delete('/admin/berita/{id}', [ManajemenBeritaController::class, 'destroy']);
-    
+
+    Route::get('/admin/siaran', function () {
+        return view('admins.manajemen-siaran.index');
+    })->name('siaran.index');
+
     // Settings Routes
     Route::get('/admin/settings', [SettingsController::class, 'index'])->name('settings.index');
     Route::post('/admin/settings/profile', [SettingsController::class, 'updateProfile'])->name('settings.update-profile');

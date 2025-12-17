@@ -22,7 +22,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('siaran.index') }}" class="nav-link">
                     <i class="fas fa-broadcast-tower"></i>
                     <span>Program Siaran</span>
                 </a>

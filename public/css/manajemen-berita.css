@@ -17,6 +17,7 @@
 }
 
 .news-card {
+    background: #334155;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     border: 1px solid #334155;
 }
@@ -75,7 +76,6 @@
     transform: scale(1.02);
 }
 
-/* Badge Styles */
 .badge {
     font-weight: 500;
     padding: 4px 8px;
