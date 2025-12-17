@@ -2099,13 +2099,6 @@ ${formData.pesan}
                     return;
                 }
 
-                // Validasi nomor telepon
-                if (!validatePhoneNumber(nomorTelepon)) {
-                    showMessage('Format nomor telepon tidak valid! Gunakan format: 08xx xxxx xxxx',
-                        'error');
-                    return;
-                }
-
                 let formattedPhone = nomorTelepon;
                 if (formattedPhone.startsWith('0')) {
                     formattedPhone = '62' + formattedPhone.substring(1);
