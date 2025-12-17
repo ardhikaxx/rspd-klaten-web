@@ -1633,14 +1633,6 @@
                                 <div>Info Bencana Alam</div>
                                 <div class="status siap">Siaga <i class="fas fa-external-link-alt"></i></div>
                             </div>
-                            <div class="quick-link">
-                                <div>Pelayanan Pajak</div>
-                                <div class="status online">Online <i class="fas fa-external-link-alt"></i></div>
-                            </div>
-                            <div class="quick-link">
-                                <div>Perizinan Usaha</div>
-                                <div class="status tersedia">Tersedia <i class="fas fa-external-link-alt"></i></div>
-                            </div>
                         </div>
                         <div class="emergency">
                             <i class="fas fa-exclamation-triangle"></i> Kontak Darurat
