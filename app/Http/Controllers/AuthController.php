@@ -35,7 +35,7 @@ class AuthController extends Controller
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
             
-            return redirect()->route('berita.index');
+            return redirect()->route('dashboard');
         }
 
         $admin = Admin::where('email', $request->email)->first();
@@ -44,7 +44,7 @@ class AuthController extends Controller
             Auth::guard('admin')->login($admin);
             $request->session()->regenerate();
             
-            return redirect()->route('berita.index');
+            return redirect()->route('dashboard');
         }
 
         return redirect()->route('login')->withErrors([
