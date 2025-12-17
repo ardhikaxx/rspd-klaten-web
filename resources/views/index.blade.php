@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radio Siaran Pemerintah Daerah Klaten</title>
+    <title>Radio Siaran Publik Daerah Klaten</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
@@ -1473,7 +1473,7 @@
                     <div class="d-flex align-items-center mb-3 mb-md-0">
                         <img src="{{ asset('images/logo.jpg') }}" alt="Logo RSPD" class="logo-img me-3">
                         <div class="radio-title">
-                            <h1>Radio Siaran Pemerintah Daerah</h1>
+                            <h1>Radio Siaran Publik Daerah</h1>
                             <p>Kabupaten Klaten - FM 91,6 MHz</p>
                         </div>
                     </div>
@@ -1596,7 +1596,7 @@
     </section>
     <section class="section-header">
         <div class="custom-container">
-            <h2>Radio Siaran Pemerintah Daerah <span style="color: var(--accent);">Klaten</span></h2>
+            <h2>Radio Siaran Publik Daerah <span style="color: var(--accent);">Klaten</span></h2>
             <p>Menyajikan informasi terkini, program berkualitas, dan pelayanan publik untuk masyarakat Klaten.
                 Dengarkan siaran langsung 24/7 di FM 107.5 MHz.</p>
         </div>
@@ -1612,7 +1612,7 @@
                             <h4>Visi & Misi</h4>
                             <p><strong>Visi:</strong> Menjadi media komunikasi publik terdepan dalam menyampaikan
                                 informasi
-                                pemerintah dan memberdayakan masyarakat Klaten.</p>
+                                Publik dan memberdayakan masyarakat Klaten.</p>
                             <p><strong>Misi:</strong> Menyediakan informasi akurat, transparan, dan bermanfaat bagi
                                 kemajuan daerah
                                 dan kesejahteraan masyarakat.</p>
@@ -1768,7 +1768,7 @@
     <section class="section-header" id="berita">
         <div class="custom-container">
             <h2>Berita Terkini</h2>
-            <p>Informasi terkini dari Pemerintah Kabupaten Klaten, budaya lokal, dan aktivitas masyarakat</p>
+            <p>Informasi terkini dari Publik Kabupaten Klaten, budaya lokal, dan aktivitas masyarakat</p>
         </div>
     </section>
     <section class="mb-5">
@@ -1976,8 +1976,8 @@
                             <i class="fas fa-wifi fs-4 me-2"></i>
                             <h3 class="mb-0">RSPD Klaten</h3>
                         </div>
-                        <p>Radio Siaran Pemerintah Daerah</p>
-                        <p>Radio Siaran Pemerintah Daerah Klaten - Menyajikan informasi resmi, program berkualitas, dan
+                        <p>Radio Siaran Publik Daerah</p>
+                        <p>Radio Siaran Publik Daerah Klaten - Menyajikan informasi resmi, program berkualitas, dan
                             hiburan untuk masyarakat Klaten sejak 1995.</p>
                         <div class="footer-contact">
                             <p><i class="fas fa-map-marker-alt me-2"></i> Jl. Pemuda No. 140, Klaten</p>
@@ -2023,7 +2023,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <div>© 2025 RSPD Klaten - Radio Siaran Pemerintah Daerah Kabupaten Klaten. Hak cipta dilindungi undang-undang.</div>
+                <div>© 2025 RSPD Klaten - Radio Siaran Publik Daerah Kabupaten Klaten. Hak cipta dilindungi undang-undang.</div>
                 <div>
                     <a href="#">Kebijakan Privasi</a>
                     <a href="#">Syarat & Ketentuan</a>
