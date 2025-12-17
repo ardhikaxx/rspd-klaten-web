@@ -35,6 +35,8 @@ class AuthController extends Controller
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
             
+            Session::flash('success', 'Login berhasil! Selamat datang di Admin Panel RSPD Klaten.');
+            
             return redirect()->route('dashboard');
         }
 
@@ -44,9 +46,13 @@ class AuthController extends Controller
             Auth::guard('admin')->login($admin);
             $request->session()->regenerate();
             
+            Session::flash('success', 'Login berhasil! Selamat datang di Admin Panel RSPD Klaten.');
+            
             return redirect()->route('dashboard');
         }
 
+        Session::flash('error', 'Email atau password salah. Silakan coba lagi.');
+        
         return redirect()->route('login')->withErrors([
             'email' => 'Email atau password salah.',
         ])->onlyInput('email');
@@ -61,6 +67,8 @@ class AuthController extends Controller
         
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+        
+        Session::flash('info', 'Anda telah berhasil logout. Sampai jumpa kembali!');
         
         return redirect()->route('login');
     }

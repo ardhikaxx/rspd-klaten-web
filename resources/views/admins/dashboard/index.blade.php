@@ -6,7 +6,7 @@
     <div class="dashboard p-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2>Dashboard</h2>
-            <div class="text-muted">
+            <div class="text-white">
                 {{ \Carbon\Carbon::now()->translatedFormat('l, d F Y') }}
             </div>
         </div>
@@ -43,7 +43,7 @@
                         <div>
                             <h6 class="card-title mb-2">Program Siaran</h6>
                             <h3 class="mb-1">{{ $totalSiaran }}</h3>
-                            <small class="text-muted">{{ $siaranHariIni->count() }} program hari ini</small>
+                            <small class="text-white">{{ $siaranHariIni->count() }} program hari ini</small>
                         </div>
                         <i class="fas fa-broadcast-tower fa-2x text-secondary"></i>
                     </div>
@@ -142,15 +142,15 @@
                                             <td>
                                                 <span class="badge bg-info">{{ $berita->kategori }}</span>
                                             </td>
-                                            <td class="text-muted">
+                                            <td class="text-white">
                                                 {{ $berita->tanggal->translatedFormat('d M Y') }}
                                             </td>
                                         </tr>
                                     @empty
                                         <tr>
                                             <td colspan="3" class="text-center py-4">
-                                                <i class="fas fa-newspaper fa-2x mb-3 text-muted"></i>
-                                                <p class="text-muted mb-0">Belum ada berita</p>
+                                                <i class="fas fa-newspaper fa-2x mb-3 text-white"></i>
+                                                <p class="text-white mb-0">Belum ada berita</p>
                                             </td>
                                         </tr>
                                     @endforelse
@@ -195,7 +195,7 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <i class="fas fa-user me-2 text-muted"></i>
+                                                    <i class="fas fa-user me-2 text-white"></i>
                                                     <span class="text-truncate" style="max-width: 100px;">
                                                         {{ $jadwal->presenter }}
                                                     </span>
@@ -205,8 +205,8 @@
                                     @empty
                                         <tr>
                                             <td colspan="3" class="text-center py-4">
-                                                <i class="fas fa-clock fa-2x mb-3 text-muted"></i>
-                                                <p class="text-muted mb-0">Belum ada jadwal hari ini</p>
+                                                <i class="fas fa-clock fa-2x mb-3 text-white"></i>
+                                                <p class="text-white mb-0">Belum ada jadwal hari ini</p>
                                             </td>
                                         </tr>
                                     @endforelse
@@ -229,6 +229,51 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+
+            @if(Session::has('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: '{{ Session::get('success') }}',
+                    timer: 3000,
+                    showConfirmButton: false
+                });
+            @endif
+
+            @if(Session::has('error'))
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal!',
+                    text: '{{ Session::get('error') }}',
+                    showConfirmButton: true
+                });
+            @endif
+
+            @if(Session::has('info'))
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Informasi',
+                    text: '{{ Session::get('info') }}',
+                    timer: 3000,
+                    showConfirmButton: false
+                });
+            @endif
+
+            @if($errors->any())
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    html: `
+                        <ul class="text-start">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    `,
+                    showConfirmButton: true
+                });
+            @endif
+            
             const kategoriData = @json($kategoriBerita);
             const siaranData = @json($siaranPerKategori);
             const jadwalData = @json($jadwalHarian);

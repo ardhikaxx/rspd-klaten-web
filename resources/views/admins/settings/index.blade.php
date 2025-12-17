@@ -25,7 +25,7 @@
                                 <img src="{{ $admin->gambar ? asset('images/profiles/' . $admin->gambar) : asset('images/default-img.png') }}"
                                     alt="{{ $admin->nama_lengkap }}" class="profile-image rounded-circle">
                                 <div class="profile-overlay">
-                                    <button class="btn btn-sm btn-light edit-profile-btn" data-bs-toggle="modal"
+                                    <button class="btn btn-sm btn-light rounded-circle edit-profile-btn" data-bs-toggle="modal"
                                         data-bs-target="#editProfileModal">
                                         <i class="fas fa-camera"></i>
                                     </button>
@@ -159,7 +159,7 @@
                                     src="{{ $admin->gambar ? asset('images/profiles/' . $admin->gambar) : asset('images/default-img.png') }}"
                                     alt="Profile Preview" class="profile-image rounded-circle">
                                 <div class="profile-overlay">
-                                    <label for="profileImage" class="btn btn-sm btn-light m-0">
+                                    <label for="profileImage" class="btn btn-sm text-white rounded-circle m-0">
                                         <i class="fas fa-camera"></i>
                                     </label>
                                 </div>

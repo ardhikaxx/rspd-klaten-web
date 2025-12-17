@@ -1483,7 +1483,7 @@
                             <input type="text" class="form-control search-input"
                                 placeholder="Cari berita, program...">
                         </div>
-                        <a href="{{ route('login') }}" class="admin-btn">Admin</a>
+                        {{-- <a href="{{ route('login') }}" class="admin-btn">Admin</a> --}}
                     </div>
                 </div>
             </div>

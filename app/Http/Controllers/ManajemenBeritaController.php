@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class ManajemenBeritaController extends Controller
@@ -42,7 +43,12 @@ class ManajemenBeritaController extends Controller
 
         Berita::create($data);
 
-        return response()->json(['success' => 'Berita berhasil ditambahkan!']);
+        Session::flash('success', 'Berita berhasil ditambahkan!');
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Berita berhasil ditambahkan!'
+        ]);
     }
 
     public function show($id)
@@ -77,7 +83,12 @@ class ManajemenBeritaController extends Controller
 
         $berita->update($data);
 
-        return response()->json(['success' => 'Berita berhasil diperbarui!']);
+        Session::flash('success', 'Berita berhasil diperbarui!');
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Berita berhasil diperbarui!'
+        ]);
     }
 
     public function destroy($id)
@@ -90,6 +101,11 @@ class ManajemenBeritaController extends Controller
         
         $berita->delete();
 
-        return response()->json(['success' => 'Berita berhasil dihapus!']);
+        Session::flash('success', 'Berita berhasil dihapus!');
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Berita berhasil dihapus!'
+        ]);
     }
 }

@@ -71,14 +71,49 @@
         </div>
 
         <div class="logout mb-3">
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit"
-                    class="btn btn-link gap-3 text-decoration-none p-0 d-flex justify-content-start align-items-center w-100">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>LOGOUT</span>
-                </button>
-            </form>
+            <button type="submit"
+                class="btn btn-link gap-3 text-decoration-none p-0 d-flex justify-content-start align-items-center w-100"
+                onclick="confirmLogout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>LOGOUT</span>
+            </button>
         </div>
     </div>
 </aside>
+
+<script>
+    function confirmLogout() {
+        Swal.fire({
+            title: 'Konfirmasi Logout',
+            text: 'Apakah Anda yakin ingin logout dari sistem?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Logout',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('logout-form').submit();
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        if (!document.getElementById('logout-form')) {
+            const logoutForm = document.createElement('form');
+            logoutForm.id = 'logout-form';
+            logoutForm.method = 'POST';
+            logoutForm.action = '{{ route('logout') }}';
+            logoutForm.style.display = 'none';
+
+            const csrfToken = document.createElement('input');
+            csrfToken.type = 'hidden';
+            csrfToken.name = '_token';
+            csrfToken.value = '{{ csrf_token() }}';
+
+            logoutForm.appendChild(csrfToken);
+            document.body.appendChild(logoutForm);
+        }
+    });
+</script>
