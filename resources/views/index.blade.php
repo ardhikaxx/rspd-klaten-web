@@ -1878,95 +1878,96 @@
                         </form>
                         <div id="formMessage" class="mt-3" style="display: none;"></div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="contact-section-card mb-4">
-                            <h3 class="mb-4"><i class="fas fa-phone me-2"></i> Informasi Kontak</h3>
-                            <div class="contact-detail-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-phone-alt"></i>
-                                </div>
-                                <div class="contact-content">
-                                    <strong>Telepon</strong>
-                                    <div>(0272) 329450</div>
-                                </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-section-card mb-4">
+                        <h3 class="mb-4"><i class="fas fa-phone me-2"></i> Informasi Kontak</h3>
+                        <div class="contact-detail-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
                             </div>
-                            <div class="contact-detail-item">
-                                <div class="contact-icon">
-                                    <i class="fab fa-whatsapp"></i>
-                                </div>
-                                <div class="contact-content">
-                                    <strong>WhatsApp</strong>
-                                    <div>+62889 0294 9093</div>
-                                </div>
-                            </div>
-                            <div class="contact-detail-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div class="contact-content">
-                                    <strong>Email</strong>
-                                    <div>klatenrspd@gmail.com</div>
-                                </div>
-                            </div>
-                            <div class="contact-detail-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div class="contact-content">
-                                    <strong>Alamat</strong>
-                                    <div>Jl. Pemuda No. 140</div>
-                                    <div>Klaten</div>
-                                </div>
+                            <div class="contact-content">
+                                <strong>Telepon</strong>
+                                <div>(0272) 329450</div>
                             </div>
                         </div>
-                        <div class="contact-section-card mb-4">
-                            <h3 class="mb-4"><i class="far fa-clock me-2"></i> Jam Operasional</h3>
-                            <div class="operational-hours">
-                                <div class="d-flex justify-content-between mb-2">
-                                    <span>Senin - Jumat</span>
-                                    <span class="text-warning">06:00 - 24:00 WIB</span>
-                                </div>
-                                <div class="d-flex justify-content-between mb-2">
-                                    <span>Sabtu - Minggu</span>
-                                    <span class="text-warning">06:00 - 24:00 WIB</span>
-                                </div>
-                                <div class="d-flex justify-content-between mb-2">
-                                    <span>Siaran Langsung</span>
-                                    <span class="text-warning">24/7</span>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <span>Layanan Telepon</span>
-                                    <span class="text-warning">08:00 - 16:00 WIB</span>
-                                </div>
+                        <div class="contact-detail-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-content">
+                                <strong>WhatsApp</strong>
+                                <div>+62889 0294 9093</div>
                             </div>
                         </div>
-                        <div class="contact-section-card">
-                            <h3 class="mb-4"><i class="fas fa-map-marked-alt me-2"></i> Lokasi Studio</h3>
-                            <div class="google-map-container">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.859748804551!2d110.60146134920434!3d-7.698196672575521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a43f9c0ef424d%3A0x439fcb157f7884f0!2sJl.%20Pemuda%20Utara%20No.140%2C%20Tegalputihan%2C%20Bareng%20Lor%2C%20Kec.%20Klaten%20Utara%2C%20Kabupaten%20Klaten%2C%20Jawa%20Tengah%2057414!5e0!3m2!1sid!2sid!4v1765877523529!5m2!1sid!2sid"
-                                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                                </iframe>
+                        <div class="contact-detail-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
                             </div>
-                            <a href="https://maps.app.goo.gl/oQZ6BHnb2EH91mC8A" target="_blank"
-                                class="btn btn-outline-light w-100 d-flex align-items-center justify-content-center py-2">
-                                <i class="fas fa-external-link-alt me-2"></i> Buka di Google Maps
-                            </a>
+                            <div class="contact-content">
+                                <strong>Email</strong>
+                                <div>klatenrspd@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-content">
+                                <strong>Alamat</strong>
+                                <div>Jl. Pemuda No. 140</div>
+                                <div>Klaten</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-12">
-                        <div class="note-banner">
-                            <strong class="text-dark">Catatan:</strong> Untuk pengaduan yang bersifat mendesak atau
-                            darurat, silakan hubungi
-                            langsung via
-                            telepon atau datang ke kantor kami. Pesan melalui formulir akan direspon dalam 1x24 jam pada
-                            hari kerja.
+                    <div class="contact-section-card mb-4">
+                        <h3 class="mb-4"><i class="far fa-clock me-2"></i> Jam Operasional</h3>
+                        <div class="operational-hours">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Senin - Jumat</span>
+                                <span class="text-warning">06:00 - 24:00 WIB</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Sabtu - Minggu</span>
+                                <span class="text-warning">06:00 - 24:00 WIB</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Siaran Langsung</span>
+                                <span class="text-warning">24/7</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Layanan Telepon</span>
+                                <span class="text-warning">08:00 - 16:00 WIB</span>
+                            </div>
                         </div>
+                    </div>
+                    <div class="contact-section-card">
+                        <h3 class="mb-4"><i class="fas fa-map-marked-alt me-2"></i> Lokasi Studio</h3>
+                        <div class="google-map-container">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.859748804551!2d110.60146134920434!3d-7.698196672575521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a43f9c0ef424d%3A0x439fcb157f7884f0!2sJl.%20Pemuda%20Utara%20No.140%2C%20Tegalputihan%2C%20Bareng%20Lor%2C%20Kec.%20Klaten%20Utara%2C%20Kabupaten%20Klaten%2C%20Jawa%20Tengah%2057414!5e0!3m2!1sid!2sid!4v1765877523529!5m2!1sid!2sid"
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <a href="https://maps.app.goo.gl/oQZ6BHnb2EH91mC8A" target="_blank"
+                            class="btn btn-outline-light w-100 d-flex align-items-center justify-content-center py-2">
+                            <i class="fas fa-external-link-alt me-2"></i> Buka di Google Maps
+                        </a>
                     </div>
                 </div>
             </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="note-banner">
+                        <strong class="text-dark">Catatan:</strong> Untuk pengaduan yang bersifat mendesak atau
+                        darurat, silakan hubungi
+                        langsung via
+                        telepon atau datang ke kantor kami. Pesan melalui formulir akan direspon dalam 1x24 jam pada
+                        hari kerja.
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <footer>
         <div class="custom-container">
@@ -2101,7 +2102,7 @@ ${formData.pesan}
                 // Validasi nomor telepon
                 if (!validatePhoneNumber(nomorTelepon)) {
                     showMessage('Format nomor telepon tidak valid! Gunakan format: 08xx xxxx xxxx',
-                    'error');
+                        'error');
                     return;
                 }
 
@@ -2125,10 +2126,11 @@ ${formData.pesan}
 
                 const whatsappMessage = formatWhatsAppMessage(formData);
                 const encodedMessage = encodeURIComponent(whatsappMessage);
-                const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+                const whatsappUrl =
+                    `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
                 if (confirm(
                         'Anda akan diarahkan ke WhatsApp untuk mengirim pesan. Pastikan WhatsApp sudah terinstall di perangkat Anda.'
-                        )) {
+                    )) {
                     window.open(whatsappUrl, '_blank');
                     showMessage(
                         'Formulir berhasil disiapkan! Silakan kirim pesan melalui WhatsApp yang terbuka.',
