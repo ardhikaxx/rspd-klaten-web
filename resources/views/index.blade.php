@@ -1827,8 +1827,8 @@
             <div class="row g-4">
                 <div class="col-lg-8">
                     <div class="contact-section-card">
-                        <h3 class="mb-4"><i class="fas fa-envelope me-2"></i> Formulir Masukan Warga</h3>
-                        <form>
+                        <h3 class="mb-4"><i class="fas fa-envelope me-2"></i>Formulir Masukan Warga</h3>
+                        <form id="feedbackForm">
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label for="namaLengkap" class="form-label"><strong>Nama Lengkap
@@ -1837,10 +1837,10 @@
                                         placeholder="Masukkan nama lengkap" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="nomorTelepon" class="form-label"><strong>Nomor
-                                            Telepon</strong></label>
+                                    <label for="nomorTelepon" class="form-label"><strong>Nomor Telepon
+                                            *</strong></label>
                                     <input type="tel" class="form-control" id="nomorTelepon"
-                                        placeholder="08xx xxxx xxxx">
+                                        placeholder="08xx xxxx xxxx" required>
                                 </div>
                                 <div class="col-12">
                                     <label for="subjek" class="form-label"><strong>Subjek *</strong></label>
@@ -1860,112 +1860,113 @@
                                 <div class="col-md-6">
                                     <label for="kategori" class="form-label"><strong>Kategori</strong></label>
                                     <select class="form-select" id="kategori">
-                                        <option selected>Pilih kategori</option>
-                                        <option value="1">Pengaduan</option>
-                                        <option value="2">Saran</option>
-                                        <option value="3">Permintaan Informasi</option>
-                                        <option value="4">Kerjasama</option>
-                                        <option value="5">Lainnya</option>
+                                        <option value="" selected>Pilih kategori</option>
+                                        <option value="Pengaduan">Pengaduan</option>
+                                        <option value="Saran">Saran</option>
+                                        <option value="Permintaan Informasi">Permintaan Informasi</option>
+                                        <option value="Kerjasama">Kerjasama</option>
+                                        <option value="Lainnya">Lainnya</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-end mt-4">
-                                <button type="submit"
+                                <button type="button" id="sendWhatsAppBtn"
                                     class="btn btn-warning d-flex align-items-center px-4 py-2 fw-bold">
-                                    <i class="fas fa-paper-plane me-2"></i> Kirim Pesan
+                                    <i class="fab fa-whatsapp me-2"></i> Kirim via WhatsApp
                                 </button>
                             </div>
                         </form>
+                        <div id="formMessage" class="mt-3" style="display: none;"></div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="contact-section-card mb-4">
+                            <h3 class="mb-4"><i class="fas fa-phone me-2"></i> Informasi Kontak</h3>
+                            <div class="contact-detail-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <strong>Telepon</strong>
+                                    <div>(0272) 329450</div>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div class="contact-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <strong>WhatsApp</strong>
+                                    <div>+62889 0294 9093</div>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <strong>Email</strong>
+                                    <div>klatenrspd@gmail.com</div>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <strong>Alamat</strong>
+                                    <div>Jl. Pemuda No. 140</div>
+                                    <div>Klaten</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-section-card mb-4">
+                            <h3 class="mb-4"><i class="far fa-clock me-2"></i> Jam Operasional</h3>
+                            <div class="operational-hours">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Senin - Jumat</span>
+                                    <span class="text-warning">06:00 - 24:00 WIB</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Sabtu - Minggu</span>
+                                    <span class="text-warning">06:00 - 24:00 WIB</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Siaran Langsung</span>
+                                    <span class="text-warning">24/7</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span>Layanan Telepon</span>
+                                    <span class="text-warning">08:00 - 16:00 WIB</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-section-card">
+                            <h3 class="mb-4"><i class="fas fa-map-marked-alt me-2"></i> Lokasi Studio</h3>
+                            <div class="google-map-container">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.859748804551!2d110.60146134920434!3d-7.698196672575521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a43f9c0ef424d%3A0x439fcb157f7884f0!2sJl.%20Pemuda%20Utara%20No.140%2C%20Tegalputihan%2C%20Bareng%20Lor%2C%20Kec.%20Klaten%20Utara%2C%20Kabupaten%20Klaten%2C%20Jawa%20Tengah%2057414!5e0!3m2!1sid!2sid!4v1765877523529!5m2!1sid!2sid"
+                                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                            <a href="https://maps.app.goo.gl/oQZ6BHnb2EH91mC8A" target="_blank"
+                                class="btn btn-outline-light w-100 d-flex align-items-center justify-content-center py-2">
+                                <i class="fas fa-external-link-alt me-2"></i> Buka di Google Maps
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="contact-section-card mb-4">
-                        <h3 class="mb-4"><i class="fas fa-phone me-2"></i> Informasi Kontak</h3>
-                        <div class="contact-detail-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="contact-content">
-                                <strong>Telepon</strong>
-                                <div>(0272) 329450</div>
-                            </div>
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="note-banner">
+                            <strong class="text-dark">Catatan:</strong> Untuk pengaduan yang bersifat mendesak atau
+                            darurat, silakan hubungi
+                            langsung via
+                            telepon atau datang ke kantor kami. Pesan melalui formulir akan direspon dalam 1x24 jam pada
+                            hari kerja.
                         </div>
-                        <div class="contact-detail-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <div class="contact-content">
-                                <strong>WhatsApp</strong>
-                                <div>+62889 0294 9093</div>
-                            </div>
-                        </div>
-                        <div class="contact-detail-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-content">
-                                <strong>Email</strong>
-                                <div>klatenrspd@gmail.com</div>
-                            </div>
-                        </div>
-                        <div class="contact-detail-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-content">
-                                <strong>Alamat</strong>
-                                <div>Jl. Pemuda No. 140</div>
-                                <div>Klaten</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-section-card mb-4">
-                        <h3 class="mb-4"><i class="far fa-clock me-2"></i> Jam Operasional</h3>
-                        <div class="operational-hours">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Senin - Jumat</span>
-                                <span class="text-warning">06:00 - 24:00 WIB</span>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Sabtu - Minggu</span>
-                                <span class="text-warning">06:00 - 24:00 WIB</span>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Siaran Langsung</span>
-                                <span class="text-warning">24/7</span>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <span>Layanan Telepon</span>
-                                <span class="text-warning">08:00 - 16:00 WIB</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-section-card">
-                        <h3 class="mb-4"><i class="fas fa-map-marked-alt me-2"></i> Lokasi Studio</h3>
-                        <div class="google-map-container">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.859748804551!2d110.60146134920434!3d-7.698196672575521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a43f9c0ef424d%3A0x439fcb157f7884f0!2sJl.%20Pemuda%20Utara%20No.140%2C%20Tegalputihan%2C%20Bareng%20Lor%2C%20Kec.%20Klaten%20Utara%2C%20Kabupaten%20Klaten%2C%20Jawa%20Tengah%2057414!5e0!3m2!1sid!2sid!4v1765877523529!5m2!1sid!2sid"
-                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                        </div>
-                        <a href="https://maps.app.goo.gl/oQZ6BHnb2EH91mC8A" target="_blank"
-                            class="btn btn-outline-light w-100 d-flex align-items-center justify-content-center py-2">
-                            <i class="fas fa-external-link-alt me-2"></i> Buka di Google Maps
-                        </a>
                     </div>
                 </div>
             </div>
-            <div class="row mt-4">
-                <div class="col-12">
-                    <div class="note-banner">
-                        <strong class="text-dark">Catatan:</strong> Untuk pengaduan yang bersifat mendesak atau darurat, silakan hubungi
-                        langsung via
-                        telepon atau datang ke kantor kami. Pesan melalui formulir akan direspon dalam 1x24 jam pada
-                        hari kerja.
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
     <footer>
         <div class="custom-container">
@@ -2014,16 +2015,21 @@
                     <div class="footer-column">
                         <h3>Ikuti Kami</h3>
                         <div class="social-icons">
-                            <a href="https://www.facebook.com/lpplrspdklaten" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.tiktok.com/@rspdfm.klaten" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                            <a href="https://www.instagram.com/rspd_klaten" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.youtube.com/@rspdfmklaten" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/lpplrspdklaten" target="_blank" class="social-icon"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.tiktok.com/@rspdfm.klaten" target="_blank" class="social-icon"><i
+                                    class="fab fa-tiktok"></i></a>
+                            <a href="https://www.instagram.com/rspd_klaten" target="_blank" class="social-icon"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/@rspdfmklaten" target="_blank" class="social-icon"><i
+                                    class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <div>© 2025 RSPD Klaten - Radio Siaran Publik Daerah Kabupaten Klaten. Hak cipta dilindungi undang-undang.</div>
+                <div>© 2025 RSPD Klaten - Radio Siaran Publik Daerah Kabupaten Klaten. Hak cipta dilindungi
+                    undang-undang.</div>
                 <div>
                     <a href="#">Kebijakan Privasi</a>
                     <a href="#">Syarat & Ketentuan</a>
@@ -2037,6 +2043,148 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackForm = document.getElementById('feedbackForm');
+            const sendWhatsAppBtn = document.getElementById('sendWhatsAppBtn');
+            const formMessage = document.getElementById('formMessage');
+
+            const whatsappNumber = "+6288902949093";
+
+            function validatePhoneNumber(phone) {
+                const phoneRegex = /^(\+62|62|0)8[1-9][0-9]{6,9}$/;
+                return phoneRegex.test(phone);
+            }
+
+            function formatWhatsAppMessage(formData) {
+                const now = new Date();
+                const dateTime = now.toLocaleString('id-ID', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+
+                return `📢 *MASUKAN DARI WARGA RSPD KLATEN* 📢
+
+👤 *Nama*: ${formData.nama}
+📞 *Nomor Telepon*: ${formData.telepon}
+📧 *Email*: ${formData.email || 'Tidak diisi'}
+📋 *Kategori*: ${formData.kategori || 'Tidak dipilih'}
+📝 *Subjek*: ${formData.subjek}
+
+💬 *Pesan*:
+${formData.pesan}
+
+⏰ *Dikirim pada*: ${dateTime}
+📍 *Via*: Website RSPD Klaten`;
+            }
+
+            sendWhatsAppBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Validasi form
+                const namaLengkap = document.getElementById('namaLengkap').value.trim();
+                const nomorTelepon = document.getElementById('nomorTelepon').value.trim();
+                const subjek = document.getElementById('subjek').value.trim();
+                const pesan = document.getElementById('pesan').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const kategori = document.getElementById('kategori').value;
+
+                // Validasi input
+                if (!namaLengkap || !nomorTelepon || !subjek || !pesan) {
+                    showMessage('Harap lengkapi semua field yang wajib diisi!', 'error');
+                    return;
+                }
+
+                // Validasi nomor telepon
+                if (!validatePhoneNumber(nomorTelepon)) {
+                    showMessage('Format nomor telepon tidak valid! Gunakan format: 08xx xxxx xxxx',
+                    'error');
+                    return;
+                }
+
+                let formattedPhone = nomorTelepon;
+                if (formattedPhone.startsWith('0')) {
+                    formattedPhone = '62' + formattedPhone.substring(1);
+                } else if (!formattedPhone.startsWith('+62') && !formattedPhone.startsWith('62')) {
+                    formattedPhone = '62' + formattedPhone;
+                }
+
+                formattedPhone = formattedPhone.replace(/\D/g, '');
+
+                const formData = {
+                    nama: namaLengkap,
+                    telepon: nomorTelepon,
+                    email: email,
+                    kategori: kategori,
+                    subjek: subjek,
+                    pesan: pesan
+                };
+
+                const whatsappMessage = formatWhatsAppMessage(formData);
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+                if (confirm(
+                        'Anda akan diarahkan ke WhatsApp untuk mengirim pesan. Pastikan WhatsApp sudah terinstall di perangkat Anda.'
+                        )) {
+                    window.open(whatsappUrl, '_blank');
+                    showMessage(
+                        'Formulir berhasil disiapkan! Silakan kirim pesan melalui WhatsApp yang terbuka.',
+                        'success');
+                    saveFormData(formData);
+                }
+            });
+
+            function showMessage(message, type) {
+                formMessage.textContent = message;
+                formMessage.className = type === 'success' ? 'alert-success' : 'alert-error';
+                formMessage.style.display = 'block';
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            }
+
+            function saveFormData(data) {
+                try {
+                    const history = JSON.parse(localStorage.getItem('feedbackHistory') || '[]');
+                    data.timestamp = new Date().toISOString();
+                    history.unshift(data);
+
+                    if (history.length > 10) {
+                        history.pop();
+                    }
+
+                    localStorage.setItem('feedbackHistory', JSON.stringify(history));
+                } catch (error) {
+                    console.error('Gagal menyimpan data:', error);
+                }
+            }
+
+            const nomorTeleponInput = document.getElementById('nomorTelepon');
+            if (nomorTeleponInput) {
+                nomorTeleponInput.addEventListener('input', function() {
+                    const value = this.value.replace(/\D/g, '');
+                    if (value.length > 0) {
+                        let formatted = value;
+                        if (value.length <= 4) {
+                            formatted = value;
+                        } else if (value.length <= 8) {
+                            formatted = value.substring(0, 4) + ' ' + value.substring(4);
+                        } else if (value.length <= 12) {
+                            formatted = value.substring(0, 4) + ' ' + value.substring(4, 8) + ' ' + value
+                                .substring(8);
+                        } else {
+                            formatted = value.substring(0, 4) + ' ' + value.substring(4, 8) + ' ' + value
+                                .substring(8, 12);
+                        }
+                        this.value = formatted;
+                    }
+                });
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', function() {
             const radioStream = document.getElementById('radioStream');
             const playButton = document.getElementById('playButton');
