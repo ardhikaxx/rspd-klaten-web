@@ -1925,15 +1925,15 @@
                         <div class="operational-hours">
                             <div class="d-flex justify-content-between mb-2">
                                 <span>Senin - Jumat</span>
-                                <span class="text-warning">06:00 - 24:00 WIB</span>
+                                <span class="text-warning">08:00 - 16:00 WIB</span>
                             </div>
                             <div class="d-flex justify-content-between mb-2">
                                 <span>Sabtu - Minggu</span>
-                                <span class="text-warning">06:00 - 24:00 WIB</span>
+                                <span class="text-warning">Libur</span>
                             </div>
                             <div class="d-flex justify-content-between mb-2">
                                 <span>Siaran Langsung</span>
-                                <span class="text-warning">24/7</span>
+                                <span class="text-warning">23/7</span>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Layanan Telepon</span>
