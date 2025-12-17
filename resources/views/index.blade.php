@@ -146,6 +146,7 @@
             border-radius: 4px;
             padding: 8px 20px;
             transition: all 0.3s;
+            text-decoration: none;
         }
 
         .admin-btn:hover {
@@ -165,6 +166,7 @@
             padding: 10px 15px;
             transition: color 0.2s;
             display: block;
+            cursor: pointer;
         }
 
         .custom-nav .nav-link:hover {
@@ -882,6 +884,11 @@
             font-size: 1.1rem;
             margin-bottom: 10px;
             color: var(--text-light);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 48px;
         }
 
         .berita-desc {
@@ -891,6 +898,7 @@
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            min-height: 60px;
         }
 
         .berita-meta {
@@ -1461,7 +1469,7 @@
                             <input type="text" class="form-control search-input"
                                 placeholder="Cari berita, program...">
                         </div>
-                        <button class="admin-btn">Admin</button>
+                        <a href="{{ route('login') }}" class="admin-btn">Admin</a>
                     </div>
                 </div>
             </div>
@@ -1537,20 +1545,37 @@
                 <div class="col-lg-4">
                     <div class="next-program">
                         <h3>NEXT PROGRAM</h3>
-                        <div class="program-card">
-                            <div class="station">RSPD</div>
-                            <h4>POP</h4>
-                            <p>MINGGU 09.00-10.00</p>
-                            <div class="program-schedule">
-                                <span>SENIN - JUMAT</span>
-                                <span>SAPA KASEP KLATEN</span>
+                        @if ($programs->count() > 0)
+                            <div class="program-card">
+                                <div class="station">RSPD</div>
+                                <h4>{{ $programs->first()->nama_program }}</h4>
+                                <p>{{ $programs->first()->waktu_siaran }}</p>
+                                <div class="program-schedule">
+                                    <span>{{ $programs->first()->kategori }}</span>
+                                    <span>{{ $programs->first()->presenter }}</span>
+                                </div>
+                                <div class="dots">
+                                    <div class="dot active"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
                             </div>
-                            <div class="dots">
-                                <div class="dot active"></div>
-                                <div class="dot"></div>
-                                <div class="dot"></div>
+                        @else
+                            <div class="program-card">
+                                <div class="station">RSPD</div>
+                                <h4>POP</h4>
+                                <p>MINGGU 09.00-10.00</p>
+                                <div class="program-schedule">
+                                    <span>SENIN - JUMAT</span>
+                                    <span>SAPA KASEP KLATEN</span>
+                                </div>
+                                <div class="dots">
+                                    <div class="dot active"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -1582,7 +1607,7 @@
                         </div>
                         <ul class="info-list">
                             <li><i class="far fa-clock"></i> Berdiri sejak 1995</li>
-                            <li><i class="far fa-user"></i> 20+ Program</li>
+                            <li><i class="far fa-user"></i> {{ $programs->count() }} Program</li>
                             <li><i class="fas fa-map-marker-alt"></i> Jl. Pemuda No. 140, Klaten</li>
                             <li><i class="fas fa-phone"></i> (0272) 329450</li>
                         </ul>
@@ -1650,94 +1675,58 @@
             <div class="row g-4">
                 <div class="col-lg-8">
                     <h3 class="mb-3"><i class="fas fa-microphone-alt"></i> Program Unggulan</h3>
-                    <div class="program-item">
-                        <h3>Suara Rakyat Klaten <span class="status">Live</span></h3>
-                        <p>Forum interaktif untuk menampung aspirasi dan keluhan masyarakat</p>
-                        <div class="program-time">
-                            <i class="far fa-clock"></i>
-                            <span>08:00 - 10:00 WIB</span>
-                            <span class="tag">Interaktif</span>
-                            <span>Host: Budi Santoso</span>
+
+                    @if ($programs->count() > 0)
+                        @foreach ($programs as $program)
+                            <div class="program-item">
+                                <h3>{{ $program->nama_program }}
+                                    <span
+                                        class="status {{ $loop->first ? 'live' : ($loop->iteration == 2 ? 'upcoming' : 'harian') }}">
+                                        {{ $loop->first ? 'Live' : ($loop->iteration == 2 ? 'Upcoming' : 'Harian') }}
+                                    </span>
+                                </h3>
+                                <p>{{ Str::limit($program->deskripsi, 120) }}</p>
+                                <div class="program-time">
+                                    <i class="far fa-clock"></i>
+                                    <span>{{ $program->waktu_siaran }} WIB</span>
+                                    <span class="tag">{{ $program->kategori }}</span>
+                                    <span>Presenter: {{ $program->presenter }}</span>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="text-center py-4">
+                            <i class="fas fa-tv fa-2x mb-3" style="color: var(--accent);"></i>
+                            <h4 class="mb-3">Belum Ada Program Siaran</h4>
+                            <p class="text-white">Tidak ada program siaran yang dijadwalkan untuk saat ini.</p>
                         </div>
-                    </div>
-                    <div class="program-item">
-                        <h3>Ngobrol Santai <span class="status upcoming">Upcoming</span></h3>
-                        <p>Talkshow budaya lokal dan komunitas Klaten</p>
-                        <div class="program-time">
-                            <i class="far fa-clock"></i>
-                            <span>15:00 - 16:00 WIB</span>
-                            <span class="tag">Talkshow</span>
-                            <span>Host: Sari Dewi</span>
-                        </div>
-                    </div>
-                    <div class="program-item">
-                        <h3>Berita Daerah <span class="status harian">Harian</span></h3>
-                        <p>Update harian berita dan pengumuman resmi Pemkab Klaten</p>
-                        <div class="program-time">
-                            <i class="far fa-clock"></i>
-                            <span>06:00, 12:00, 18:00 WIB</span>
-                            <span class="tag">Berita</span>
-                            <span>Host: Tim Redaksi</span>
-                        </div>
-                    </div>
+                    @endif
+
                     <div class="schedule-table">
-                        <h3><i class="far fa-calendar-alt"></i> Jadwal Mingguan</h3>
-                        <div class="schedule-row">
-                            <div class="schedule-day">Senin</div>
-                            <div class="schedule-programs">
-                                <div class="schedule-program">Senam Pagi</div>
-                                <div class="schedule-program">Info Kesehatan</div>
-                                <div class="schedule-program">Musik Nusantara</div>
+                        <h3><i class="far fa-calendar-alt"></i> Jadwal Hari Ini</h3>
+
+                        @if ($jadwals->count() > 0)
+                            @foreach ($jadwals as $jadwal)
+                                <div class="schedule-row">
+                                    <div class="schedule-day">{{ date('H:i', strtotime($jadwal->waktu_jadwal)) }}
+                                    </div>
+                                    <div class="schedule-programs">
+                                        <div class="schedule-program">
+                                            {{ $jadwal->nama_jadwal }}
+                                            @if ($jadwal->presenter)
+                                                <span class="text-muted">(Presenter: {{ $jadwal->presenter }})</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="text-center py-4">
+                                <i class="far fa-calendar-times fa-2x mb-3" style="color: var(--accent);"></i>
+                                <h4 class="mb-3">Belum Ada Jadwal Siaran</h4>
+                                <p class="text-white">Tidak ada jadwal siaran untuk hari ini.</p>
                             </div>
-                        </div>
-                        <div class="schedule-row">
-                            <div class="schedule-day">Selasa</div>
-                            <div class="schedule-programs">
-                                <div class="schedule-program">Suara Rakyat</div>
-                                <div class="schedule-program">Ngobrol Santai</div>
-                                <div class="schedule-program">Berita Malam</div>
-                            </div>
-                        </div>
-                        <div class="schedule-row">
-                            <div class="schedule-day">Rabu</div>
-                            <div class="schedule-programs">
-                                <div class="schedule-program">Program Anak</div>
-                                <div class="schedule-program">Wisata Klaten</div>
-                                <div class="schedule-program">Talk Show</div>
-                            </div>
-                        </div>
-                        <div class="schedule-row">
-                            <div class="schedule-day">Kamis</div>
-                            <div class="schedule-programs">
-                                <div class="schedule-program">Motivasi Pagi</div>
-                                <div class="schedule-program">UMKM Corner</div>
-                                <div class="schedule-program">Musik Klasik</div>
-                            </div>
-                        </div>
-                        <div class="schedule-row">
-                            <div class="schedule-day">Jumat</div>
-                            <div class="schedule-programs">
-                                <div class="schedule-program">Kajian Islami</div>
-                                <div class="schedule-program">Budaya Lokal</div>
-                                <div class="schedule-program">Request Song</div>
-                            </div>
-                        </div>
-                        <div class="schedule-row">
-                            <div class="schedule-day">Sabtu</div>
-                            <div class="schedule-programs">
-                                <div class="schedule-program">Weekend Special</div>
-                                <div class="schedule-program">Sport Corner</div>
-                                <div class="schedule-program">Nostalgia</div>
-                            </div>
-                        </div>
-                        <div class="schedule-row">
-                            <div class="schedule-day">Minggu</div>
-                            <div class="schedule-programs">
-                                <div class="schedule-program">Family Time</div>
-                                <div class="schedule-program">Komunitas</div>
-                                <div class="schedule-program">Easy Listening</div>
-                            </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -1772,60 +1761,48 @@
     </section>
     <section class="mb-5">
         <div class="custom-container">
-            <div class="berita-tabs">
-                <button class="berita-tab active">Berita Pemerintah</button>
-                <button class="berita-tab">Budaya</button>
-                <button class="berita-tab">Musik</button>
-                <button class="berita-tab">Komunitas</button>
+            <div class="berita-tabs" id="beritaTabs">
+                <button class="berita-tab active" data-category="">Semua</button>
+                @foreach ($kategories as $kategori)
+                    <button class="berita-tab" data-category="{{ $kategori }}">{{ $kategori }}</button>
+                @endforeach
             </div>
-            <div class="row g-4 mt-3">
-                <div class="col-md-4">
-                    <div class="berita-card">
-                        <img src="https://via.placeholder.com/400x200" alt="Berita Pemerintah" class="berita-img">
-                        <div class="berita-content">
-                            <div class="berita-category">Ekonomi</div>
-                            <div class="berita-title">Pemkab Klaten Luncurkan Program Digitalisasi UMKM</div>
-                            <div class="berita-desc">Program bantuan digitalisasi untuk meningkatkan daya saing UMKM di
-                                era digital
-                            </div>
-                            <div class="berita-meta">
-                                <div><i class="far fa-calendar"></i> 15 Januari 2025</div>
-                                <div><i class="far fa-eye"></i> 245</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="berita-card">
-                        <div class="berita-content">
-                            <div class="berita-category">Infrastruktur</div>
-                            <div class="berita-title">Pembangunan Jalan Penghubung Desa Selesai</div>
-                            <div class="berita-desc">Infrastruktur jalan sepanjang 5 km menghubungkan 3 desa di
-                                Kecamatan Bayat
-                            </div>
-                            <div class="berita-meta">
-                                <div><i class="far fa-calendar"></i> 14 Januari 2025</div>
-                                <div><i class="far fa-eye"></i> 189</div>
+            <div class="row g-4 mt-3" id="beritaList">
+                @if ($beritas->count() > 0)
+                    @foreach ($beritas as $berita)
+                        <div class="col-md-4 berita-item" data-category="{{ $berita->kategori }}">
+                            <div class="berita-card">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('images/berita/' . $berita->gambar) }}"
+                                        alt="{{ $berita->judul }}" class="berita-img">
+                                @else
+                                    <img src="{{ asset('images/default-img.png') }}" alt="Default Image"
+                                        class="berita-img">
+                                @endif
+                                <div class="berita-content">
+                                    <div class="berita-category">{{ $berita->kategori }}</div>
+                                    <div class="berita-title">{{ $berita->judul }}</div>
+                                    <div class="berita-desc">{{ Str::limit($berita->deskripsi, 120) }}</div>
+                                    <div class="berita-meta">
+                                        <div><i class="far fa-calendar"></i> {{ $berita->tanggal->format('d M Y') }}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    @endforeach
+                @else
+                    <div class="text-center py-5">
+                        <i class="fas fa-newspaper fa-3x mb-3" style="color: var(--accent);"></i>
+                        <h3 class="mb-3">Belum Ada Berita</h3>
+                        <p class="text-white">Tidak ada berita yang tersedia untuk saat ini. Silakan kembali lagi
+                            nanti.</p>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="berita-card">
-                        <div class="berita-content">
-                            <div class="berita-category">Kesehatan</div>
-                            <div class="berita-title">Vaksinasi COVID-19 Dosis Booster Tahap 2</div>
-                            <div class="berita-desc">Pemkab Klaten menggelar vaksinasi booster untuk masyarakat umur
-                                18+</div>
-                            <div class="berita-meta">
-                                <div><i class="far fa-calendar"></i> 13 Januari 2025</div>
-                                <div><i class="far fa-eye"></i> 367</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endif
             </div>
-            <a href="#" class="view-more">Lihat Berita Lainnya</a>
+            @if ($beritas->count() > 0)
+                <a href="#" class="view-more">Lihat Berita Lainnya</a>
+            @endif
         </div>
     </section>
     <section id="kontak" class="mb-5">
@@ -1954,15 +1931,12 @@
                     <div class="contact-section-card">
                         <h3 class="mb-4"><i class="fas fa-map-marked-alt me-2"></i> Lokasi Studio</h3>
                         <div class="google-map-container">
-                            <iframe 
+                            <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.859748804551!2d110.60146134920434!3d-7.698196672575521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a43f9c0ef424d%3A0x439fcb157f7884f0!2sJl.%20Pemuda%20Utara%20No.140%2C%20Tegalputihan%2C%20Bareng%20Lor%2C%20Kec.%20Klaten%20Utara%2C%20Kabupaten%20Klaten%2C%20Jawa%20Tengah%2057414!5e0!3m2!1sid!2sid!4v1765877523529!5m2!1sid!2sid"
-                                allowfullscreen="" 
-                                loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade">
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
                         </div>
-                        <a href="https://maps.app.goo.gl/oQZ6BHnb2EH91mC8A"
-                            target="_blank" 
+                        <a href="https://maps.app.goo.gl/oQZ6BHnb2EH91mC8A" target="_blank"
                             class="btn btn-outline-light w-100 d-flex align-items-center justify-content-center py-2">
                             <i class="fas fa-external-link-alt me-2"></i> Buka di Google Maps
                         </a>
@@ -2042,7 +2016,7 @@
                 <div>
                     <a href="#">Kebijakan Privasi</a>
                     <a href="#">Syarat & Ketentuan</a>
-                    <a href="#">Login Staff</a>
+                    <a href="{{ route('login') }}">Login Staff</a>
                 </div>
             </div>
         </div>
@@ -2173,10 +2147,23 @@
             });
 
             const tabs = document.querySelectorAll('.berita-tab');
+            const beritaItems = document.querySelectorAll('.berita-item');
+
             tabs.forEach(tab => {
                 tab.addEventListener('click', function() {
                     tabs.forEach(t => t.classList.remove('active'));
                     this.classList.add('active');
+
+                    const selectedCategory = this.getAttribute('data-category');
+
+                    beritaItems.forEach(item => {
+                        if (selectedCategory === '' || item.getAttribute(
+                                'data-category') === selectedCategory) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
                 });
             });
 

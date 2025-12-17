@@ -21,4 +21,9 @@ class Jadwal extends Model
     {
         return date('H:i', strtotime($this->waktu_jadwal));
     }
+
+    public function getWaktu12FormatAttribute()
+    {
+        return date('h:i A', strtotime($this->waktu_jadwal));
+    }
 }

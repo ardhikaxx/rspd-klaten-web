@@ -2,13 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ManajemenBeritaController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ManajemenSiaranController;
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::get('/', [LandingPageController::class, 'index'])->name('home');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
