@@ -2006,7 +2006,7 @@
                             <li><a href="#">Podcast Archive</a></li>
                             <li><a href="#">Program Schedule</a></li>
                             <li><a href="#">News & Updates</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#kontak">Kontak Kami</a></li>
                         </ul>
                     </div>
                 </div>
@@ -2014,10 +2014,10 @@
                     <div class="footer-column">
                         <h3>Ikuti Kami</h3>
                         <div class="social-icons">
-                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/lpplrspdklaten" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.tiktok.com/@rspdfm.klaten" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://www.instagram.com/rspd_klaten" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/@rspdfmklaten" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>
