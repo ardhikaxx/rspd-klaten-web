@@ -1630,10 +1630,6 @@
                         <h3><i class="fas fa-clipboard-list"></i> Layanan Publik Cepat</h3>
                         <div class="quick-links">
                             <div class="quick-link">
-                                <div>Pengumuman Vaksinasi</div>
-                                <div class="status active">Aktif <i class="fas fa-external-link-alt"></i></div>
-                            </div>
-                            <div class="quick-link">
                                 <div>Info Bencana Alam</div>
                                 <div class="status siap">Siaga <i class="fas fa-external-link-alt"></i></div>
                             </div>
@@ -1652,19 +1648,19 @@
                         <div class="contact-list">
                             <div class="contact-item">
                                 <div class="contact-name">PMI Klaten</div>
-                                <div class="contact-number">0272-321234</div>
+                                <div class="contact-number">0811-2634-425</div>
                             </div>
                             <div class="contact-item">
                                 <div class="contact-name">Polres Klaten</div>
-                                <div class="contact-number">0272-321122</div>
+                                <div class="contact-number">0811-255-881</div>
                             </div>
                             <div class="contact-item">
                                 <div class="contact-name">Pemadam Kebakaran</div>
-                                <div class="contact-number">0272-321199</div>
+                                <div class="contact-number">0858-6000-0113</div>
                             </div>
                             <div class="contact-item">
                                 <div class="contact-name">RSUD Klaten</div>
-                                <div class="contact-number">0272-321555</div>
+                                <div class="contact-number">0272-321020</div>
                             </div>
                         </div>
                         <div class="emergency">
