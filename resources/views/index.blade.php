@@ -1598,7 +1598,7 @@
         <div class="custom-container">
             <h2>Radio Siaran Publik Daerah <span style="color: var(--accent);">Klaten</span></h2>
             <p>Menyajikan informasi terkini, program berkualitas, dan pelayanan publik untuk masyarakat Klaten.
-                Dengarkan siaran langsung 24/7 di FM 107.5 MHz.</p>
+                Dengarkan siaran langsung 23/7 di FM 107.5 MHz.</p>
         </div>
     </section>
     <section class="mb-5" id="tentang">
