@@ -1685,7 +1685,7 @@
     <section class="mb-5">
         <div class="custom-container">
             <div class="row g-4">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <h3 class="mb-3"><i class="fas fa-microphone-alt"></i> Program Unggulan</h3>
 
                     @if ($programs->count() > 0)
@@ -1739,27 +1739,6 @@
                                 <p class="text-white">Tidak ada jadwal siaran untuk hari ini.</p>
                             </div>
                         @endif
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="studio-info">
-                        <h3>Info Studio</h3>
-                        <div class="studio-detail">
-                            <span>Jam Siaran:</span>
-                            <span>24/7</span>
-                        </div>
-                        <div class="studio-detail">
-                            <span>Frekuensi:</span>
-                            <span>FM 91.6 MHz</span>
-                        </div>
-                        <div class="studio-detail">
-                            <span>Jangkauan:</span>
-                            <span>Kabupaten Klaten</span>
-                        </div>
-                        <div class="studio-detail">
-                            <span>Format:</span>
-                            <span>Stereo</span>
-                        </div>
                     </div>
                 </div>
             </div>
