@@ -13,7 +13,7 @@
             --secondary-bg: #141b27;
             --accent: #ffd700;
             --text-light: #ffffff;
-            --text-muted: #a0a0a0;
+            --text-white: #a0a0a0;
             --red: #ff3b3b;
             --blue: #0066ff;
             --gray: #2c3440;
@@ -70,7 +70,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            color: var(--text-muted);
+            color: var(--text-white);
         }
 
         .live-info i {
@@ -112,7 +112,7 @@
 
         .radio-title p {
             font-size: 0.9rem;
-            color: var(--text-muted);
+            color: var(--text-white);
             margin-bottom: 0;
         }
 
@@ -136,7 +136,7 @@
             left: 12px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--text-muted);
+            color: var(--text-white);
         }
 
         .admin-btn {
@@ -401,7 +401,7 @@
         }
 
         .volume-icon {
-            color: var(--text-muted);
+            color: var(--text-white);
             font-size: 1.2rem;
         }
 
@@ -454,7 +454,7 @@
         .next-program h3 {
             margin-bottom: 15px;
             font-size: 1.1rem;
-            color: var(--text-muted);
+            color: var(--text-white);
             border-bottom: 1px solid var(--border);
             padding-bottom: 10px;
         }
@@ -536,7 +536,7 @@
         .section-header p {
             max-width: 600px;
             margin: 0 auto;
-            color: var(--text-muted);
+            color: var(--text-white);
         }
 
         .info-box {
@@ -575,7 +575,7 @@
 
         .visi-misi p {
             margin-bottom: 10px;
-            color: var(--text-muted);
+            color: var(--text-white);
         }
 
         .info-list {
@@ -588,7 +588,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: var(--text-muted);
+            color: var(--text-white);
             margin-bottom: 10px;
         }
 
@@ -721,7 +721,7 @@
 
         .program-item p {
             margin: 10px 0;
-            color: var(--text-muted);
+            color: var(--text-white);
         }
 
         .program-time {
@@ -749,7 +749,7 @@
             background-color: var(--gray);
             border-radius: 3px;
             font-size: 0.8rem;
-            color: var(--text-muted);
+            color: var(--text-white);
         }
 
         .schedule-table {
@@ -892,7 +892,7 @@
         }
 
         .berita-desc {
-            color: var(--text-muted);
+            color: var(--text-white);
             margin-bottom: 10px;
             display: -webkit-box;
             -webkit-line-clamp: 3;
@@ -906,7 +906,7 @@
             justify-content: space-between;
             align-items: center;
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: var(--text-white);
         }
 
         .berita-meta i {
@@ -914,7 +914,7 @@
         }
 
         .view-more {
-            width: 200px;
+            width: 350px;
             display: block;
             text-align: center;
             margin: 20px auto;
@@ -945,7 +945,7 @@
         }
 
         .note-banner strong {
-            color: var(--red);
+            color: #000;
         }
 
         footer {
@@ -1292,7 +1292,7 @@
         }
 
         .contact-content div {
-            color: var(--text-muted);
+            color: var(--text-white);
             font-size: 0.9rem;
             line-height: 1.4;
         }
@@ -1431,6 +1431,20 @@
             .google-map-container {
                 height: 180px;
             }
+        }
+
+        .fa-spinner.fa-spin {
+            margin-right: 8px;
+        }
+
+        .view-more:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .view-more:disabled:hover {
+            background-color: var(--gray);
+            color: var(--text-light);
         }
     </style>
 </head>
@@ -1583,7 +1597,8 @@
     <section class="section-header">
         <div class="custom-container">
             <h2>Radio Siaran Pemerintah Daerah <span style="color: var(--accent);">Klaten</span></h2>
-            <p>Menyajikan informasi terkini, program berkualitas, dan pelayanan publik untuk masyarakat Klaten. Dengarkan siaran langsung 24/7 di FM 107.5 MHz.</p>
+            <p>Menyajikan informasi terkini, program berkualitas, dan pelayanan publik untuk masyarakat Klaten.
+                Dengarkan siaran langsung 24/7 di FM 107.5 MHz.</p>
         </div>
     </section>
     <section class="mb-5" id="tentang">
@@ -1711,7 +1726,7 @@
                                         <div class="schedule-program">
                                             {{ $jadwal->nama_jadwal }}
                                             @if ($jadwal->presenter)
-                                                <span class="text-muted">(Presenter: {{ $jadwal->presenter }})</span>
+                                                <span class="text-white">(Presenter: {{ $jadwal->presenter }})</span>
                                             @endif
                                         </div>
                                     </div>
@@ -1798,7 +1813,7 @@
                 @endif
             </div>
             @if ($beritas->count() > 0)
-                <a href="#" class="view-more">Lihat Berita Lainnya</a>
+                <a href="#" class="view-more" id="viewMoreBtn">Lihat Berita Lainnya</a>
             @endif
         </div>
     </section>
@@ -1943,7 +1958,7 @@
             <div class="row mt-4">
                 <div class="col-12">
                     <div class="note-banner">
-                        <strong>Catatan:</strong> Untuk pengaduan yang bersifat mendesak atau darurat, silakan hubungi
+                        <strong class="text-dark">Catatan:</strong> Untuk pengaduan yang bersifat mendesak atau darurat, silakan hubungi
                         langsung via
                         telepon atau datang ke kantor kami. Pesan melalui formulir akan direspon dalam 1x24 jam pada
                         hari kerja.
@@ -2008,12 +2023,11 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <div>© 2025 RSPD Klaten - Radio Siaran Pemerintah Daerah Kabupaten Klaten. Hak cipta dilindungi
-                    undang-undang.</div>
+                <div>© 2025 RSPD Klaten - Radio Siaran Pemerintah Daerah Kabupaten Klaten. Hak cipta dilindungi undang-undang.</div>
                 <div>
                     <a href="#">Kebijakan Privasi</a>
                     <a href="#">Syarat & Ketentuan</a>
-                    <a href="{{ route('login') }}">Login Staff</a>
+                    <a href="{{ route('login') }}">Login Admin</a>
                 </div>
             </div>
         </div>
@@ -2269,6 +2283,135 @@
             });
 
             updateStatus(false, "Radio Offline - Klik tombol play untuk memulai streaming");
+        });
+
+        async function loadAllBerita(category = '') {
+            try {
+                const response = await fetch(`/berita/all?category=${category}`);
+                const data = await response.json();
+
+                if (data.success) {
+                    return data.beritas;
+                }
+                return [];
+            } catch (error) {
+                console.error('Error loading berita:', error);
+                return [];
+            }
+        }
+
+        function renderBerita(beritas, container) {
+            container.innerHTML = '';
+
+            if (beritas.length === 0) {
+                container.innerHTML = `
+            <div class="text-center py-5">
+                <i class="fas fa-newspaper fa-3x mb-3" style="color: var(--accent);"></i>
+                <h3 class="mb-3">Tidak Ada Berita</h3>
+                <p class="text-white">Tidak ada berita yang ditemukan untuk kategori ini.</p>
+            </div>
+        `;
+                return;
+            }
+
+            beritas.forEach(berita => {
+                const beritaElement = document.createElement('div');
+                beritaElement.className = 'col-md-4 berita-item mb-4';
+                beritaElement.setAttribute('data-category', berita.kategori);
+                beritaElement.innerHTML = `
+            <div class="berita-card">
+                <img src="${berita.gambar}" alt="${berita.gambar_alt}" class="berita-img">
+                <div class="berita-content">
+                    <div class="berita-category">${berita.kategori}</div>
+                    <div class="berita-title">${berita.judul}</div>
+                    <div class="berita-desc">${berita.deskripsi.length > 120 ? berita.deskripsi.substring(0, 120) + '...' : berita.deskripsi}</div>
+                    <div class="berita-meta">
+                        <div><i class="far fa-calendar"></i> ${berita.tanggal}</div>
+                    </div>
+                </div>
+            </div>
+        `;
+                container.appendChild(beritaElement);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const viewMoreBtn = document.getElementById('viewMoreBtn');
+            const beritaList = document.getElementById('beritaList');
+            const beritaTabs = document.getElementById('beritaTabs');
+
+            if (viewMoreBtn) {
+                let isShowingAll = false;
+                let originalContent = beritaList.innerHTML;
+
+                viewMoreBtn.addEventListener('click', async function(e) {
+                    e.preventDefault();
+
+                    if (!isShowingAll) {
+                        viewMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memuat...';
+                        viewMoreBtn.disabled = true;
+                        const activeTab = document.querySelector('.berita-tab.active');
+                        const category = activeTab ? activeTab.getAttribute('data-category') : '';
+
+                        const allBerita = await loadAllBerita(category);
+                        renderBerita(allBerita, beritaList);
+                        viewMoreBtn.innerHTML = 'Tampilkan Lebih Sedikit';
+                        isShowingAll = true;
+                        viewMoreBtn.disabled = false;
+                    } else {
+                        beritaList.innerHTML = originalContent;
+
+                        const activeTab = document.querySelector('.berita-tab.active');
+                        if (activeTab) {
+                            const selectedCategory = activeTab.getAttribute('data-category');
+                            const beritaItems = beritaList.querySelectorAll('.berita-item');
+
+                            beritaItems.forEach(item => {
+                                if (selectedCategory === '' || item.getAttribute(
+                                        'data-category') === selectedCategory) {
+                                    item.style.display = 'block';
+                                } else {
+                                    item.style.display = 'none';
+                                }
+                            });
+                        }
+
+                        viewMoreBtn.innerHTML = 'Lihat Berita Lainnya';
+                        isShowingAll = false;
+                    }
+                });
+
+                const tabs = beritaTabs.querySelectorAll('.berita-tab');
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', async function() {
+                        tabs.forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+
+                        if (isShowingAll) {
+                            const category = this.getAttribute('data-category');
+                            viewMoreBtn.innerHTML =
+                                '<i class="fas fa-spinner fa-spin"></i> Memuat...';
+                            viewMoreBtn.disabled = true;
+                            const allBerita = await loadAllBerita(category);
+                            renderBerita(allBerita, beritaList);
+                            viewMoreBtn.innerHTML = 'Tampilkan Lebih Sedikit';
+                            viewMoreBtn.disabled = false;
+                        } else {
+                            const selectedCategory = this.getAttribute('data-category');
+                            const beritaItems = beritaList.querySelectorAll('.berita-item');
+
+                            beritaItems.forEach(item => {
+                                if (selectedCategory === '' || item.getAttribute(
+                                        'data-category') === selectedCategory) {
+                                    item.style.display = 'block';
+                                } else {
+                                    item.style.display = 'none';
+                                }
+                            });
+                        }
+                    });
+                });
+            }
         });
     </script>
 </body>

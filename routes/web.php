@@ -9,6 +9,7 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ManajemenSiaranController;
 
 Route::get('/', [LandingPageController::class, 'index'])->name('home');
+Route::get('/berita/all', [LandingPageController::class, 'getAllBerita'])->name('berita.all');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
