@@ -22,11 +22,11 @@
                         placeholder="Cari berita berdasarkan judul atau deskripsi..." id="searchInput">
                 </div>
                 <select class="form-select bg-dark text-white border-secondary" id="categoryFilter">
-                        <option value="">Semua Kategori</option>
-                        @foreach ($kategories as $kategori)
-                            <option value="{{ $kategori }}">{{ $kategori }}</option>
-                        @endforeach
-                    </select>
+                    <option value="">Semua Kategori</option>
+                    @foreach ($kategories as $kategori)
+                        <option value="{{ $kategori }}">{{ $kategori }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
 
@@ -115,6 +115,7 @@
         </div>
     </div>
 
+    <!-- Modal Tambah Berita -->
     <div class="modal fade" id="tambahBeritaModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content bg-dark text-white">
@@ -143,12 +144,9 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="kategori" class="form-label">Kategori</label>
-                                <select class="form-select bg-dark text-white" id="kategori" name="kategori" required>
-                                    <option value="">Pilih Kategori</option>
-                                    @foreach ($kategories as $kategori)
-                                        <option value="{{ $kategori }}">{{ $kategori }}</option>
-                                    @endforeach
-                                </select>
+                                <input type="text" class="form-control bg-dark text-white" id="kategori" name="kategori"
+                                    required placeholder="Masukkan kategori (contoh: Infrastruktur, Kesehatan, dll)">
+                                <small class="text-muted">Masukkan kategori baru atau pilih dari kategori yang sudah ada</small>
                             </div>
                         </div>
                         <div class="mb-3">
@@ -198,13 +196,9 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="edit_kategori" class="form-label">Kategori</label>
-                                <select class="form-select bg-dark text-white" id="edit_kategori" name="kategori"
-                                    required>
-                                    <option value="">Pilih Kategori</option>
-                                    @foreach ($kategories as $kategori)
-                                        <option value="{{ $kategori }}">{{ $kategori }}</option>
-                                    @endforeach
-                                </select>
+                                <input type="text" class="form-control bg-dark text-white" id="edit_kategori" name="kategori"
+                                    required placeholder="Masukkan kategori">
+                                <small class="text-muted">Masukkan kategori baru atau pilih dari kategori yang sudah ada</small>
                             </div>
                         </div>
                         <div class="mb-3">
@@ -302,6 +296,25 @@
             const noResultsCard = document.getElementById('noResultsCard');
             const resetFilterBtn = document.getElementById('resetFilterBtn');
             const newsList = document.getElementById('newsList');
+            
+            document.getElementById('tanggal').valueAsDate = new Date();
+
+            function updateCategoryFilter() {
+                const categories = new Set();
+                document.querySelectorAll('.news-card').forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (category) {
+                        categories.add(category);
+                    }
+                });
+                
+                const sortedCategories = Array.from(categories).sort();
+                
+                categoryFilter.innerHTML = '<option value="">Semua Kategori</option>';
+                sortedCategories.forEach(category => {
+                    categoryFilter.innerHTML += `<option value="${category}">${category}</option>`;
+                });
+            }
 
             function filterNews() {
                 const searchTerm = searchInput.value.toLowerCase().trim();
@@ -343,8 +356,7 @@
                 });
             }
 
-            document.getElementById('tanggal').valueAsDate = new Date();
-
+            // Form Tambah Berita
             document.getElementById('formTambahBerita').addEventListener('submit', function(e) {
                 e.preventDefault();
 
@@ -362,6 +374,8 @@
                         if (data.success) {
                             alert(data.success);
                             location.reload();
+                        } else if (data.error) {
+                            alert(data.error);
                         }
                     })
                     .catch(error => {
@@ -370,6 +384,7 @@
                     });
             });
 
+            // Edit Berita
             document.querySelectorAll('.edit-berita').forEach(button => {
                 button.addEventListener('click', function() {
                     const id = this.getAttribute('data-id');
@@ -380,7 +395,7 @@
                             document.getElementById('edit_id').value = data.id;
                             document.getElementById('edit_judul').value = data.judul;
                             document.getElementById('edit_deskripsi').value = data.deskripsi;
-                            document.getElementById('edit_tanggal').value = data.tanggal;
+                            document.getElementById('edit_tanggal').value = data.tanggal.split('T')[0];
                             document.getElementById('edit_kategori').value = data.kategori;
 
                             const currentImageDiv = document.getElementById('currentImage');
@@ -404,6 +419,7 @@
                 });
             });
 
+            // Form Edit Berita
             document.getElementById('formEditBerita').addEventListener('submit', function(e) {
                 e.preventDefault();
 
@@ -423,6 +439,8 @@
                         if (data.success) {
                             alert(data.success);
                             location.reload();
+                        } else if (data.error) {
+                            alert(data.error);
                         }
                     })
                     .catch(error => {
@@ -431,6 +449,7 @@
                     });
             });
 
+            // Lihat Berita
             document.querySelectorAll('.lihat-berita').forEach(button => {
                 button.addEventListener('click', function() {
                     const id = this.getAttribute('data-id');
@@ -514,6 +533,8 @@
                         alert('Terjadi kesalahan saat menghapus berita');
                     });
             });
+
+            updateCategoryFilter();
         });
     </script>
 @endpush
