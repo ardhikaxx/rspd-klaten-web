@@ -796,7 +796,7 @@
             border-radius: 8px;
             padding: 20px;
             border: 1px solid var(--border);
-            height: 100%;
+            height: auto;
         }
 
         .studio-info h3 {
