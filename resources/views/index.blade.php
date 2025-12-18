@@ -100,7 +100,7 @@
 
         .logo-img {
             width: auto;
-            height: 60px;
+            height: 80px;
         }
 
         .radio-title h1 {
@@ -1471,7 +1471,7 @@
             <div class="custom-container">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
                     <div class="d-flex align-items-center mb-3 mb-md-0">
-                        <img src="{{ asset('images/logo.jpg') }}" alt="Logo RSPD" class="logo-img me-3">
+                        <img src="{{ asset('images/logo-header.jpeg') }}" alt="Logo RSPD" class="logo-img me-3">
                         <div class="radio-title">
                             <h1>Radio Siaran Publik Daerah</h1>
                             <p>Kabupaten Klaten - FM 91,6 MHz</p>
@@ -1597,8 +1597,7 @@
     <section class="section-header">
         <div class="custom-container">
             <h2>Radio Siaran Publik Daerah <span style="color: var(--accent);">Klaten</span></h2>
-            <p>Menyajikan informasi terkini, program berkualitas, dan pelayanan publik untuk masyarakat Klaten.
-                Dengarkan siaran langsung 23/7 di FM 107.5 MHz.</p>
+            <p>Suara Hati Klaten, Sahabat Setia Warga. RSPD FM 91,6 Mhz.</p>
         </div>
     </section>
     <section class="mb-5" id="tentang">
@@ -1607,15 +1606,21 @@
                 <div class="col-lg-6">
                     <div class="info-box">
                         <h3><i class="fas fa-building"></i> Profil Radio</h3>
-                        <img src="{{ asset('images/profile.jpg') }}" alt="Profil Radio" class="profile-img">
+                        <img src="{{ asset('images/profile.JPG') }}" alt="Profil Radio" class="profile-img">
                         <div class="visi-misi">
                             <h4>Visi & Misi</h4>
-                            <p><strong>Visi:</strong> Menjadi media komunikasi publik terdepan dalam menyampaikan
-                                informasi
-                                Publik dan memberdayakan masyarakat Klaten.</p>
-                            <p><strong>Misi:</strong> Menyediakan informasi akurat, transparan, dan bermanfaat bagi
-                                kemajuan daerah
-                                dan kesejahteraan masyarakat.</p>
+                            <p><strong class="text-white">Visi:</strong> Mewujudkan LPPL RSPD Klaten sebagai media yang Informatif,
+                                Edukatif, Rekreatif, dan Kulturis, bermanfaat bagi masyarakat, profesional, dan optimal
+                            </p>
+                            <div><strong>Misi:</strong></div>
+                            <ol style="color: var(--text-white); padding-left: 20px;">
+                                <li>Menjadikan radio yang dapat memberikan informasi berimbang, jelas, dan dapat
+                                    dipertanggungjawabkan.</li>
+                                <li>Menjadikan radio yang mampu mendidik dan menghibur masyarakat secara profesional dan
+                                    sehat.</li>
+                                <li>Menjadikan radio yang menjaga dan melestarikan seni budaya lokal secara
+                                    berkelanjutan.</li>
+                            </ol>
                         </div>
                         <ul class="info-list">
                             <li><i class="far fa-clock"></i> Berdiri sejak 1995</li>
@@ -1794,7 +1799,7 @@
             <div class="row g-4">
                 <div class="col-lg-8">
                     <div class="contact-section-card">
-                        <h3 class="mb-4"><i class="fas fa-envelope me-2"></i>Formulir Masukan Warga</h3>
+                        <h3 class="mb-4"><i class="fas fa-envelope me-2"></i>Formulir Permohonan Talkshow</h3>
                         <form id="feedbackForm">
                             <div class="row g-3">
                                 <div class="col-md-6">
@@ -1888,11 +1893,15 @@
                         </div>
                     </div>
                     <div class="contact-section-card mb-4">
-                        <h3 class="mb-4"><i class="far fa-clock me-2"></i> Jam Operasional</h3>
+                        <h3 class="mb-4"><i class="far fa-clock me-2"></i>Jam Pelayanan</h3>
                         <div class="operational-hours">
                             <div class="d-flex justify-content-between mb-2">
-                                <span>Senin - Jumat</span>
+                                <span>Senin - Kamis</span>
                                 <span class="text-warning">08:00 - 16:00 WIB</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Jumat</span>
+                                <span class="text-warning">08:00 - 11:00 WIB</span>
                             </div>
                             <div class="d-flex justify-content-between mb-2">
                                 <span>Sabtu - Minggu</span>
