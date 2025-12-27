@@ -1631,14 +1631,8 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="info-box">
+                    <div class="info-box h-auto">
                         <h3><i class="fas fa-clipboard-list"></i> Layanan Publik Cepat</h3>
-                        <div class="quick-links">
-                            <div class="quick-link">
-                                <div>Info Bencana Alam</div>
-                                <div class="status siap">Siaga <i class="fas fa-external-link-alt"></i></div>
-                            </div>
-                        </div>
                         <div class="emergency">
                             <i class="fas fa-exclamation-triangle"></i> Kontak Darurat
                         </div>
