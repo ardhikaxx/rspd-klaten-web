@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
+use App\Models\admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -35,18 +35,18 @@ class AuthController extends Controller
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
             
-            Session::flash('success', 'Login berhasil! Selamat datang di Admin Panel RSPD Klaten.');
+            Session::flash('success', 'Login berhasil! Selamat datang di admin Panel RSPD Klaten.');
             
             return redirect()->route('dashboard');
         }
 
-        $admin = Admin::where('email', $request->email)->first();
+        $admin = admin::where('email', $request->email)->first();
         
         if ($admin && Hash::check($request->password, $admin->password)) {
             Auth::guard('admin')->login($admin);
             $request->session()->regenerate();
             
-            Session::flash('success', 'Login berhasil! Selamat datang di Admin Panel RSPD Klaten.');
+            Session::flash('success', 'Login berhasil! Selamat datang di admin Panel RSPD Klaten.');
             
             return redirect()->route('dashboard');
         }
